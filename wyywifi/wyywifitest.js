@@ -1,0 +1,1 @@
+document.write('<img src="http://img0.imgtn.bdimg.com/it/u=3375283346,157255456&fm=21&gp=0.jpg">');

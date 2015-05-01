@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title><#:C('sitename')#>--会员中心</title>
+<meta name="keywords" content="<#:C('keyword')#>"/>
+<meta name="description" content="<#:C('content')#>"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<include file="Pub:Css"/>
+<link rel="stylesheet" href="<#$Theme['P']['root']#>/matrix/css/uniform.css" />
+
+<link  href="<#$Theme['P']['root']#>/kindeditor/themes/default/default.css" type="text/css" rel="stylesheet">
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.min.js"></script> 
+</head>
+<body>
+   <include file="Pub:top"/>
+   <include file="Pub:nav"/>
+<div id="main-content">
+<!--main-container-part-->
+	<div class="container">
+		<div class="row">
+<div id="content" class="col-lg-12">
+
+
+<div id="content-header" class="page-header">
+		<ul class="breadcrumb">
+			<li>
+				<div id="breadcrumb"> <i class="icon-home fa fa-home"></i><a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom">首页</a></div> 
+			</li>
+			<li>路由编辑</li>
+		</ul>
+		<!-- /BREADCRUMBS -->
+			<div class="clearfix">
+				<h3 class="content-title pull-left">路由管理</h3>
+			</div> 
+			<div class="description">&nbsp;</div>
+	 </div>
+
+
+		<div class="col-md-12">
+		<div class="box border green">
+		<div class="box-title">
+			<div class="widget-title"> <span class="icon">  </span>
+         <h4><i class="fa fa-bars"></i>设置编辑</h4>
+        </div>
+		</div>
+		
+     
+       <div class="box-body big">
+	    <form action="<#:U('mangeroute')#>"  method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+
+			<div class="form-group">
+				<div class="span1"></div>
+					<div class="alert alert-block span10 hide" id="msgbox"> 
+				  <h4 class="alert-heading">提示信息</h4>
+				 <div id="alertmsg"></div>
+				  </div>
+				</div>
+			
+			
+			   <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基本设置</h4>
+			  
+			  <div class="form-group" >
+			  
+				<label class="col-sm-3 control-label">无线名称  :</label>
+				<div class="col-sm-7">
+				  <input class="form-control" placeholder="无线名称"   value="<#$site.routename#>" name="routename" id="routename"  type="text" />
+              </div>
+			  </div>
+			  
+			  
+			    <div class="form-group">
+				 <label class="col-sm-3 control-label" id="encrypt">是否加密  : </label> 
+				 <div class="col-md-7"> 
+				  <label class="radio-inline"> <input type="radio" value="0" class="uniform" checked="checked" name="encrypt" > 否 </label> 
+				  <label class="radio-inline"> <input type="radio" value='1' name="encrypt" > 是 </label> 
+				</div> 
+			  </div>
+			  
+			 
+			   <div class="form-group" >
+			  
+				<label class="col-sm-3 control-label">无线密码  :</label>
+				<div class="col-sm-7">
+				<input class="form-control" placeholder="无线密码"   value="<#$site.password#>" name="gw_password" id="gw_password"  type="text" />
+               
+				</div>
+			  </div>
+			  
+			     <div class="form-group" >
+				<label class="col-sm-3 control-label">无线信道  :</label>
+				<div class="col-sm-7">
+				<input class="form-control" placeholder="无线信道"   value="<#$site.channel#>" name="chanel" id="chanel"  type="text" />
+				 <span class="help-block" style='color:red'>选择范围0-13</span>
+                		</div>
+			  </div>
+			  
+			  </hr>
+			  
+			   <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;外网设置 </h4>
+			<div class="form-group">
+              <fieldset class="cont">
+		
+					<div class="list">
+					  <div class="form-group" >
+						<label class="col-sm-3 control-label">外网设置 :</label>
+						<div class="col-sm-4">
+						<select size="1" name="wwsite"  class="form-control" onChange="javascript:test('mune_x','mune_x'+this.value)">  
+							<option value="1" <if condition= "$site.wwsite eq 1" >"selected=\"selected\""</if>    > DHCP  用户</option> 
+							<option value="2" <if condition= "$site.wwsite eq 2" >"selected=\"selected\""</if>  >PPPOE 用户</option> 
+						</select> 
+						</div>
+					  </div>
+					
+					
+					</div>
+					<div class="list" id="mune_x1">
+						
+					</div>	
+										
+					<!-------------------------------选择PPPOE 用户-------------------------------------->
+					<div class="list" id="mune_x2" style="display:none">
+					 <div class="form-group" >
+						<label class="col-sm-3 control-label">上网账号 :</label>
+						<div class="col-sm-7">
+						<input class="form-control" placeholder="上网账号"   value="<#$site.wifi_acc#>" name="wifi_acc" id="wifi_acc"  type="text" />
+								</div>
+					  </div>
+					  
+					  <div class="form-group" >
+						<label class="col-sm-3 control-label">上网密码 :</label>
+						<div class="col-sm-7">
+						<input class="form-control" placeholder="上网密码"   value="<#$site.wifi_pass#>" name="wifi_pass" id="wifi_pass"  type="text" />
+								</div>
+					  </div>
+						
+					</div>
+						
+				</fieldset>
+            </div>
+			</hr>
+			  
+			   <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内网设置 </h4>
+			   
+			 <div class="form-group">
+			   <fieldset class="cont">
+		
+					<div class="list">
+					  <div class="form-group" >
+						<label class="col-sm-3 control-label">内网设置 :</label>
+						<div class="col-sm-4">
+						<select size="1" name="nwsite"  class="form-control" onChange="javascript:test('mune_y','mune_y'+this.value)">  
+							<option value="1" <if condition= "$site.nwsite eq 1" >"selected=\"selected\""</if>   >DHCP  用户</option> 
+							<option value="3" <if condition= "$site.nwsite eq 3" >"selected=\"selected\""</if>   >静态IP  用户</option> 
+						</select> 
+						</div>
+					  </div>
+					
+					
+					</div>
+						
+				<!--------选择静态IP--------->
+					<div class="list" id="mune_y1">
+						
+					</div>	
+					
+					<div class="list" id="mune_y2" style="display:none">
+					<div class="form-group" >
+						<label class="col-sm-3 control-label">路由器IP :</label>
+						<div class="col-sm-7">
+						<input class="form-control" placeholder="0.0.0.0"   value="<#$site.route_ip#>" name="route_ip" id="route_ip"  type="text" />
+								</div>
+					  </div>
+					  <div class="form-group" >
+						<label class="col-sm-3 control-label">子网掩码 :</label>
+						<div class="col-sm-7">
+						<input class="form-control" placeholder="255.0.0.0"   value="<#$site.route_mask#>" name="route_mask" id="route_mask"  type="text" />
+								</div>
+					  </div>
+					   <div class="form-group" >
+						<label class="col-sm-3 control-label">默认网关 :</label>
+						<div class="col-sm-7">
+						<input class="form-control" placeholder="0.0.0.0"   value="<#$site.route_gateway#>" name="route_gateway" id="route_gateway"  type="text" />
+								</div>
+					  </div>
+						
+					</div>
+				
+				</fieldset>
+				</div>
+	  
+			</hr>
+			  <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;认证设置 </h4>
+			   
+			    <div class="form-group">
+					    <div class="form-group" >
+			  
+				<label class="col-sm-3 control-label">域名白名单  :</label>
+				<div class="col-sm-7">
+				  <span class="help-block" style='color:red'>以下相隔之间用，隔开</span>
+				  <textarea name="rzaite_yubai" id="rzaite_yubai"  class="autosize form-control"><#$site.rzaite_yubai#></textarea>  
+             </div>
+				
+			  </div>	
+			  
+			   <div class="form-group" >
+			  
+				<label class="col-sm-3 control-label">域名黑名单  :</label>
+				<div class="col-sm-7">
+				 <textarea name="rzaite_yuhei" id="rzaite_yuhei"  class="autosize form-control"><#$site.rzaite_yuhei#></textarea>  
+              </div>
+			  </div>	
+			  
+			   <div class="form-group" >
+			  
+				<label class="col-sm-3 control-label">免认证MAC 地址  :</label>
+				<div class="col-sm-7">
+				 
+				<textarea name="mac_bai" id="mac_bai"  class="autosize form-control"><#$site.mac_bai#></textarea>  
+              </div>
+			  </div>	
+			  
+			   <div class="form-group" >
+			  
+				<label class="col-sm-3 control-label">黑名单MAC  :</label>
+				<div class="col-sm-7">
+				
+				 <textarea name="mac_hei" id="mac_hei"  class="autosize form-control"><#$site.mac_hei#></textarea>  
+              </div>
+			  </div>	
+				</div>
+	  
+            <div class="form-actions">
+            <input type="hidden" value="<#$info.id#>" name="routemap_id"/>
+              <input type="submit" class="btn btn-success" name="sub" value="保存"/>&nbsp;&nbsp;
+              <a href="<#:U('User/routemap')#>" class="btn" id="btn-back">返回</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      
+    </div>
+	
+  </div>
+  </div>
+  
+</div></div>
+  
+</div></div>
+   <include file="Pub:foot"/>
+
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.ui.custom.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/bootstrap.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/matrix.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.uniform.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/common.js"></script> 
+<script>
+
+
+$(document).ready(function(){
+	$('input[type=checkbox],input[type=radio],input[type=file]').uniform();
+});
+
+function test(prefix,Names){
+	var Name;
+	for (var i=1;i<4;i++){	//  更改数字4可以改变选择的内容数量，在下拉总数值的基础上+1.比如：下拉菜单有5个值，则4变成6
+		var tempname=prefix + i;                                                                        
+		var NewsHot=prefix + i;	//  “X”是ID名称，比如：ID命名为“case1”，这里的“X”即为“case”
+		if (Names==tempname){
+			Nnews=document.getElementById(NewsHot)
+			Nnews.style.display='';
+		}else{
+			Nnews=document.getElementById(NewsHot)
+			Nnews.style.display='none';   
+		}
+	}
+}
+
+</script>
+</body>
+</html>

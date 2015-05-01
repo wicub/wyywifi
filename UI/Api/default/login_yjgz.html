@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+<div>
+
+<a href="javascript:void(0);" onclick="weixinAddContact('gh_5f81fbb868d8'）">一键关注</a>
+
+</div>
+
+
+<script>
+
+//关注指定的微信号
+//关注指定的微信号
+function weixinAddContact(name){
+        WeixinJSBridge.invoke("addContact", {webtype: "1",username: name}, function(e) {
+                WeixinJSBridge.log(e.err_msg);
+                //e.err_msg:add_contact:added 已经添加
+                //e.err_msg:add_contact:cancel 取消添加
+                //e.err_msg:add_contact:ok 添加成功
+				//alert('关注成功')
+                if(e.err_msg == 'add_contact:added' || e.err_msg == 'add_contact:ok'){
+                    //关注成功，或者已经关注过
+					alert('关注成功')；
+                }
+        })
+} 
+
+
+//init   
+function r(f){(typeof WeixinJSBridge == 'undefined'||(typeof WeixinJSBridge.invoke == 'undefined'))?setTimeout('r('+f+')',200):f()}   
+r(function(){   
+   WeiXinAddContact("gh_5f81fbb868d8");   
+}); 
+
+
+</script>	
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title><#:C('sitename')#></title>
+<meta name="keywords" content="<#:C('keyword')#>"/>
+<meta name="description" content="<#:C('content')#>"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<include file="Pub:Css"/>
+<style>
+.cateradio-t {
+    padding-top: 20px;
+}
+.cateradio-t ul, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.cateradio-t li {
+    float: left;
+    margin: 0 0 20px 20px;
+    text-align: center;
+    width: 240px;
+}
+.cateradio-t li input {
+    margin-left: 120px;  
+}
+.cateradio-t li img {
+    height: 360px;
+    text-align: center;
+    width: 240px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+label, input, button, select, textarea {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+</style>
+</head>
+<body>
+   <include file="Pub:top"/>
+   <include file="Pub:nav"/>
+   <div id="main-content">
+<!--main-container-part-->
+	<div class="container">
+		<div class="row">
+<div id="content" class="col-lg-12">
+
+  <!-- <div id="content-header">
+    <div id="breadcrumb"> <a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom"><i class="icon-home"></i>首页</a> <a href="#" class="current">模板管理</a> </div>
+    <h1>认证模板设置</h1>
+   
+  </div> -->
+  
+ 
+  <div id="content-header" class="page-header">
+		<ul class="breadcrumb">
+			<li>
+				<!-- <i class="fa fa-home"></i> -->
+				<div id="breadcrumb"> <i class="icon-home fa fa-home"></i><a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom">首页</a></div> 
+			</li>
+			<li>模板管理</li>
+		</ul>
+		<!-- <div id="breadcrumb"> <a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom"><i class="icon-home"></i>首页</a></div> -->
+		<!-- /BREADCRUMBS -->
+			<div class="clearfix">
+				<h3 class="content-title pull-left"><span><i class="fa-th icon-spin "></i>&nbsp;&nbsp;</span>认证模板设置</h3>
+			</div> 
+			<div class="description">&nbsp;</div>
+	  </div>
+  <!-- 
+	  <div  class="container-fluid">
+			<div class="widget-box">
+		
+		<div class="widget-title">
+				<ul class="nav nav-tabs">
+				  <li class="active"><a data-toggle="tab" href="#tab1">认证模板</a></li>
+	
+				</ul>
+		   </div> -->
+	   
+	   <div class="col-md-12">
+		<!-- BASIC -->
+		<div class="box border primary">
+		<div class="box-title">
+			<!-- <h4><i class="fa fa-bars"></i>b</h4> -->
+			<div class="widget-title"> <span class="icon">  </span>
+         <h4><i class="fa fa-bars"></i>认证模板</h4>
+        </div>
+		</div>
+	   
+	   <div class="box-body big">
+       <!--  <div class="widget-content tab-content"> -->
+            <div id="tab1" class="tab-pane active">
+            	<div class="widget-content">
+            	<ul class="cateradio-t">
+            	<volist name="tpl" id="list">
+									<if condition="$list['group'] eq 1">
+									<li <eq name="info['tpl_id']" value="$list['id']">  class="active" </eq>>
+											<label>
+											<img  src="<#$Theme['P']['root']#>/images/webtpl/<#$list['pic']#>"><input class="radio" type="radio" name="optype" value="<#$list['id']#>"
+										<eq name="info['tpl_id']" value="$list['id']">checked</eq> /> <#$list['tpname']#>
+										</label>
+									</li>
+									</if>
+									</volist>
+            		
+            	</ul>
+            	<div style="clear:both;"></div>
+            	</div>
+            
+            </div>
+            
+
+          </div>
+        
+  </div>
+</div>
+</div>  </div>
+</div>
+</div>
+
+   <include file="Pub:foot"/>
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.ui.custom.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/bootstrap.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/matrix.js"></script> 
+
+<script src="<#$Theme['P']['root']#>/matrix/js/common.js"></script> 
+<script>
+			$(".radio")
+					.click(
+							function() {
+
+								$(".cateradio li").each(function() {
+
+									$(this).removeClass("active");
+
+								});
+
+								$(this).parents("li").addClass(
+										"active");
+
+								var myurl = '/index.php?g=index&m=authset&a=dotplset&tpl='
+										+ $(this).val()
+										+ '&r='
+										+ Math.random();
+
+								$.ajax({
+									url : myurl,
+									async : false
+								});
+
+							});
+
+</script>
+</body>
+</html>

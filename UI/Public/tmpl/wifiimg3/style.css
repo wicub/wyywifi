@@ -1,0 +1,99 @@
+/* 
+Powered by Hancoson
+ */
+.footer_lead{
+	max-width:640px;
+	width:100%;
+	text-align:center;
+	margin:0 auto;
+	clear: both; 
+	position:fixed;
+	bottom:0;
+	left:0;
+	right:0;
+	z-index: 2; 
+	color:#8F8F8F
+	}
+.footer_lead img{
+	min-height:0;
+	width:100%;
+	height:auto;
+	display: block;
+	margin-top:-165px;
+	text-align:center
+	}
+	.footer_lead .login-btn{
+		width:200px;
+		height:200px;
+		background:url(img/btn.png);
+		margin:0 auto;
+		text-align:center;
+		line-height:200px;
+		font-size:28px;
+		position:absolute;
+		bottom:50px;
+		left:0;
+		right:0;
+		z-index: 99999; 
+		}
+	.footer_lead .powered{
+		/*max-width:640px;*/
+		width:100%;
+		background:#fff;
+		filter:alpha(Opacity=70);
+		-moz-opacity:0.3;
+		opacity: 0.3;
+		float:left;
+		margin:0 auto;
+		padding:8px 0;
+		position:fixed;
+		bottom:0;
+		left:0;
+		right:0;
+		z-index: 3; 
+		}
+
+@media screen and (max-width: 640px) {
+	.footer_lead .login-btn{
+		background-size:170px 170px;
+		width:170px;
+		height:170px;
+		line-height:170px;
+		font-size:24px;
+		bottom:80px;
+		}
+
+}
+@media screen and (max-width: 550px) {
+	.footer_lead .login-btn{
+		bottom:65px;
+		}
+
+}
+
+@media screen and (max-width: 520px) {
+	.footer_lead .login-btn{
+		bottom:55px;
+		}
+
+}
+@media screen and (max-width: 500px) {
+	.footer_lead .login-btn{
+		bottom:50px;
+		}
+
+
+}
+@media screen and (max-width: 480px) {
+	.footer_lead .login-btn{
+		background-size:125px  125px ;
+		width:125px ;
+		height:125px ;
+		line-height:125px;
+		font-size:18px;
+		bottom:40px;
+		}
+
+
+}
+

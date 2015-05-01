@@ -1,0 +1,278 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title><#$shopinfo[0]['shopname']#></title>
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="{{assets}}i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="{{assets}}i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="{{assets}}i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="{{assets}}i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="<#$Theme['P']['root']#>/tmpl/wifiimg6/amazeui.min.css">
+    <link rel="stylesheet" href="<#$Theme['P']['root']#>/tmpl/wifiimg6/amazeui.css">
+    <link rel="stylesheet" href="<#$Theme['P']['root']#>/tmpl/wifiimg6/app.css">
+<style>
+		.yjswan{
+		  position: absolute;
+		  width:100%;
+		  text-align: center;
+		  background: #fff;
+		  border: 1px solid #ccc;
+		  padding: 30px;
+		  top:-800px;
+		   z-index:99999;
+		}
+		.yjswan a{
+			width:100%;
+			 margin-top:10px;
+		}
+		.close {
+		position: relative;
+		  display: inline-block;
+		  width: 50px;
+		  height: 50px;
+		  overflow: hidden;
+		  FLOAT: RIGHT;
+		  font-family: cursive;
+		
+		  }
+		
+		</style>
+</head>
+<body>
+<div class="heads">
+    <p class="names"><#$shopinfo[0]['shopname']#></p>
+</div>
+<!-- <div class="am-slider am-slider-default" data-am-flexslider>
+        <ul class="am-slides">
+            <li><img id="001" src="<#$Theme['P']['root']#>/tmpl/wifiimg6/001.jpg" /></li>
+            <li><img id="002" src="<#$Theme['P']['root']#>/tmpl/wifiimg6/002.jpg" /></li>
+            <li><img id="003" src="<#$Theme['P']['root']#>/tmpl/wifiimg6/001.jpg" /></li>
+            <li><img id="004" src="<#$Theme['P']['root']#>/tmpl/wifiimg6/002.jpg" /></li>
+        </ul>
+</div> -->
+<!--gaokai-->
+<div class="am-slider am-slider-default" data-am-flexslider>
+		<ul class="am-slides">
+	       <notempty name="ad">
+			<volist name="ad" id="vo">
+	     		
+	     		<eq name="vo['mode']" value="1">
+	     		<li href="<#:U('userauth/showad',array('id'=>$vo['id']))#>"><img src="<#$vo.ad_thumb#>" width="100%"></li>
+	     		<else/>
+					<gt name="vo.advurl|strlen" value="2">
+						<a href="http://<#$vo.advurl#>"><img src="<#$vo.ad_thumb#>" width="100%"></a>
+					<else/>
+						<img src="<#$vo.ad_thumb#>" width="100%">
+					</gt>
+	     		
+	     		</eq>
+	     		
+			</volist>
+			<else/>
+			<li  class="swiper-slide">
+	     		<img src="<#$Theme['P']['root']#>/images/ad/noad01.jpg" width="100%">
+	     		</li>
+				<li  class="swiper-slide">
+	     		<img src="<#$Theme['P']['root']#>/images/ad/noad02.jpg" width="100%">
+	     		</li>
+			</notempty>   		
+	      </ul>
+	</div>
+
+   
+<div>
+    <ul class="am-avg-sm-4">
+        <li id="yjswxs">
+            <div class="why">
+                <div>
+                    <a  ><img src="<#$Theme['P']['root']#>/tmpl/wifiimg6/1-1副本.png" alt="图片" class="am-img-thumbnail am-circle" width="80px" height="80px"></a>
+                </div>
+                <div class="one"><a >一键上网</a></div>
+            </div>
+        </li>
+        <li>
+            <div class="why">
+                <div>
+                    <a href="#"><img src="<#$Theme['P']['root']#>/tmpl/wifiimg6/3-3.png" alt="图片" class="am-img-thumbnail am-circle" width="80px" height="80px"></a>
+                </div>
+                <div class="one"><a href="#">周边优惠</a></div>
+            </div>
+        </li>
+        <li>
+            <div class="why">
+                <div>
+                    <a href="#"><img src="<#$Theme['P']['root']#>/tmpl/wifiimg6/2-2.png" alt="图片" class="am-img-thumbnail am-circle" width="80px" height="80px"></a>
+                </div>
+                <div class="one"><a href="#">本店特惠</a></div>
+            </div>
+        </li>
+        <li>
+            <div class="why">
+                <div>
+                    <a href="#"><img src="<#$Theme['P']['root']#>/tmpl/wifiimg6/4-4.png" alt="图片" class="am-img-thumbnail am-circle" width="80px" height="80px"></a>
+                </div>
+                <div class="one"><a href="#">联系我们</a></div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!--gaokai-->
+<div class="yjswan" id="yjswan" >
+			<span class="close big" id="yjswgb">关闭</span>
+
+           
+		
+		
+		<eq name="show" value="1">
+		<if condition="$authmode['open'] eq true" >
+			<eq name="authmode['overmax']" value="0">
+				
+				<eq name="authmode['wx']" value="1">
+				
+				 <a  type="button" class="am-btn am-btn-secondary" href="<#:U('userauth/wxauth')#>">微信一键关注上网</a>
+				</eq>
+			
+				
+				<eq name="authmode['allow']" value="1">
+			
+				<a  type="button" href="<#:U('userauth/noAuth')#>" class="am-btn am-btn-success">直接上网</a>
+				</eq>
+				<eq name="authmode['phone']" value="1">
+				<a  class="am-btn am-btn-warning"  href="<#:U('userauth/mobile')#>">手机认证</a>
+				</eq>
+				<eq name="authmode['wechashare']" value="1">
+					<a class="am-btn am-btn-primary" href="<#:U('userauth/wechashare')#>">微信分享</a>
+						</eq>
+				<eq name="authmode['reg']" value="1">
+				<a  class="am-btn am-btn-primary" href="<#:U('userauth/reg')#>">注册认证</a>
+				<a class="am-btn am-btn-success" href="<#:U('userauth/login')#>">会员登录</a>
+				
+				</eq>
+				<else/>
+					<div class="ugbox">
+					<div class="ugbox-son">
+						
+						<h2 style="text-align: center;line-height:40px;">每日免费上网次数是<#$shopinfo[0]['countmax']#>次 </br>
+						
+						</h2>
+						
+					</div>
+					</div>
+			</eq>
+			
+		<else/>
+			<div class="ugbox">
+			<div class="ugbox-son">
+				
+				<h2 style="text-align: center;line-height:40px;">当前时间不提供上网服务.</br>
+				<eq name="authmode['openflag']" value="true">
+					上网开放时间为每日 <#$authmode.opensh#>:00点至<#$authmode.openeh#>:00点
+				</eq>
+				</h2>
+				
+			</div>
+			</div>
+		</if>
+	</eq>
+	<div class="ugbox" style="margin-top:5px;">
+	<div class="ugbox-son"><a class="am-btn am-btn-secondary"  href="<#:U('userauth/comments')#>">客户留言</a></div>
+	</div>
+           
+
+ </div>
+		
+<!-- <div class="what">
+    <div data-am-widget="titlebar" class="am-titlebar am-titlebar-multi">
+        <h2 class="am-titlebar-title">本店特惠</h2>
+        <nav class="am-titlebar-nav">
+            <a href="syudt03.html" class="">更多… &raquo;</a>
+        </nav>
+    </div>
+</div>
+<div>
+    <ul class="am-avg-sm-2">
+        <li><img src="0003.jpg" class="img010" /></li>
+        <li><img src="0003.jpg" class="img010"/></li>
+        <li><img src="0003.jpg" class="img010"/></li>
+        <li><img src="0003.jpg" class="img010"/></li>
+    </ul>
+</div>
+<div class="what">
+    <div data-am-widget="titlebar" class="am-titlebar am-titlebar-multi">
+        <h2 class="am-titlebar-title">就餐环境</h2>
+        <nav class="am-titlebar-nav">
+            <a href="study04.html" class="">更多… &raquo;</a>
+        </nav>
+    </div>
+</div>
+<div>
+    <ul class="am-avg-sm-2">
+        <li><img src="0003.jpg" class="img010" /></li>
+        <li><img src="0003.jpg" class="img010"/></li>
+        <li><img src="0003.jpg" class="img010"/></li>
+        <li><img src="0003.jpg" class="img010"/></li>
+    </ul>
+</div> -->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="<#$Theme['P']['root']#>/tmpl/wifiimg6/jquery.min.js"></script>
+<script>
+	
+
+	$(document).ready(function(){
+	  $("#yjswgb").click(function(){
+		$("#yjswan").animate({top:'-800px'});
+	  });
+	  $("#yjswxs").click(function(){
+		 $("#yjswan").animate({top:'0px'});
+	  });
+	});
+
+</script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<![endif]-->
+<script src="<#$Theme['P']['root']#>/tmpl/wifiimg6/amazeui.js"></script>
+<div>
+    <footer data-am-widget="footer" class="am-footer am-footer-default">
+        
+        <div class="am-footer-miscs ">
+            <p>由
+                <a href="http://www.1-lian.com/" title="风讯辉腾" target="_blank">风讯辉腾</a>提供技术支持</p>
+            <p>0952-6025777</p>
+            <p>CopyRight©2015 FXphaeton Inc.</p>
+            <p>宁ICP备14001451</p>
+        </div>
+</div>
+</body>
+</html>

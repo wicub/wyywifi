@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title><#:C('sitename')#>--联盟设置</title>
+<meta name="keywords" content="<#:C('keyword')#>"/>
+<meta name="description" content="<#:C('content')#>"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<include file="Pub:Css"/>
+<link rel="stylesheet" href="<#$Theme['P']['root']#>/matrix/css/uniform.css" />
+<link rel="stylesheet" href="<#$Theme['P']['root']#>/matrix/css/select2.css" />
+</head>
+<body>
+   <include file="Pub:top"/>
+   <include file="Pub:nav"/>
+   
+ <div id="main-content">
+  
+   	<div class="container">
+   		<div class="row"> 
+<div id="content" class="col-lg-12">
+
+<!-- <div id="content-header">
+  <div id="breadcrumb"> <a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom"><i class="icon-home"></i>首页</a>  <a href="#" class="current">联盟设置</a> </div>
+  <h1>联盟设置</h1>
+</div> -->
+
+ <div id="content-header" class="page-header">
+				<ul class="breadcrumb">
+					<li>
+						<!-- <i class="fa fa-home"></i> -->
+						<div id="breadcrumb"> <i class="icon-home fa fa-home"></i><a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom">首页</a></div> 
+					</li>
+					<li>联盟设置</li>
+				</ul>
+				<!-- <div id="breadcrumb"> <a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom"><i class="icon-home"></i>首页</a></div> -->
+				<!-- /BREADCRUMBS -->
+					<div class="clearfix">
+						<h3 class="content-title pull-left"><span><i class="fa-globe icon-spin "></i>&nbsp;&nbsp;</span>联盟设置</h3>
+					</div> 
+					<div class="description">&nbsp;</div>
+			  </div>
+
+
+
+<div class="col-md-8">
+<div class="box border primary">
+		<div class="box-title">
+			
+			<div class="widget-title"> <span class="icon">  </span>
+		 <h4><i class="fa fa-bars"></i>编辑</h4>
+		</div>
+		</div> 
+  
+  <!-- <div class="row-fluid"> -->
+  <!--<div class="box-body big">
+     <div class="span8">
+	  <div class="widget-box">
+		<div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+		  <h5>编辑</h5>
+		</div> -->
+		<div class="box-body big">
+        <div class="widget-content nopadding">
+		 <form name='form' action="index.php?m=User&a=lianmengset" method="post" class="form-horizontal" role="form" >
+        
+        	<!--  <div class="control-group">
+              <label class="control-label">联盟跳转URL : <font color="red">HTTP://</font></label>
+              <div class="controls">
+               <input type="text" class="span11" placeholder="联盟跳转URL " name="lianmengurl" id="lianmengurl" value="<#$shop['lianmengurl']#>"/>
+              </div>
+            </div> -->
+			
+			<div class="form-group">
+				<label class="col-sm-3 control-label">商联盟跳转URL :<font color="red">HTTP://</font></label>
+				<div class="col-sm-9">
+				  <!-- <input type="text" class="span11" placeholder="联盟跳转URL " name="lianmengurl" id="lianmengurl" value="<#$shop['lianmengurl']#>"/> -->
+				   <input type="text" class="form-control" placeholder="联盟跳转URL " name="lianmengurl" id="lianmengurl" value="<#$shop['lianmengurl']#>"/>
+				</div>
+			  </div>
+			
+			
+       
+            <div class="form-actions">
+              <input type="submit" class="btn btn-success" name="sub" value="保存"/>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+  
+</div></div>
+</div></div></div></div>
+   <include file="Pub:foot"/>
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.ui.custom.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/bootstrap.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/matrix.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.uniform.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/select2.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/common.js"></script> 
+<script>
+function copyText(obj) 
+{ 
+$(document).ready(function(){
+	$('input[type=checkbox],input[type=radio],input[type=file]').uniform();
+	
+	$('select').select2();
+
+	$("input[name='authmode[]']").each(function(){
+		if($(this).attr('checked')&&$(this).val()==3){
+			$('#wxauth').show();
+			$('#wxacc').show();
+		}
+		$(this).bind('click',function(){
+				
+				if($(this).attr('checked')&&$(this).val()==3){
+						$('#wxauth').show();
+						$('#wxacc').show();
+				}else if(!$(this).attr('checked')&&$(this).val()==3){
+						$('#wxauth').hide();
+						$('#wxacc').hide();
+				}
+		});
+	});
+
+	$("input[name='sub']").bind('click',function(){
+		var rs=true;
+		
+		
+		
+		$("input[name='authmode[]']").each(function(){
+			if($(this).attr('checked')&&$(this).val()==3){
+				
+					 var v=$('#wxauthpwd').val();
+						
+					 if (v == "") {
+						
+						 AlertTips("请输入微信认证密码",2000);
+					        rs= false;
+					 }
+					 if(!isaccount(v)){
+						
+						 AlertTips("请输入微信认证密码",2000);
+					        rs= false;
+					 }
+					 var wx=$('#wx').val();
+						
+					 if (wx == "") {
+						
+						 AlertTips("请输入微信账号",2000);
+					        rs= false;
+					 }
+				
+				}
+		});
+			
+		return rs;
+	});
+});
+</script>
+
+			<script>
+				if($('#xuanxiang3').attr('checked')!="checked"){
+					$("#wxacc").hide();
+					$("#wxauth").hide();
+				}
+				function yincangweixin(tt){
+					if(tt.id=="xuanxiang3"){
+							$("#wxacc").toggle();
+							$("#wxauth").toggle();
+					}
+				}
+			</script>
+</body>
+</html>

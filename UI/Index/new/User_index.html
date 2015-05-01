@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title><#:C('sitename')#>--会员中心</title>
+<meta name="keywords" content="<#:C('keyword')#>"/>
+<meta name="description" content="<#:C('content')#>"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<include file="Pub:Css"/>
+</head>
+<body>
+
+
+   <include file="Pub:top"/>
+   <include file="Pub:nav"/>
+   <!-- section加在了nav的顶端-->
+
+
+
+<div id="main-content">
+<!--main-container-part-->
+	<div class="container">
+		<div class="row">
+			<div id="content" class="col-lg-12">
+				<div class="row">
+				
+			<!--breadcrumbs-->
+			<div class="col-sm-12">
+			  <div id="content-header" class="page-header">
+				<ul class="breadcrumb">
+					<li>
+						<!-- <i class="fa fa-home"></i> -->
+						<div id="breadcrumb"> <i class="icon-home fa fa-home"></i><a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom">首页</a></div> 
+					</li>
+					<li>控制中心</li>
+				</ul>
+				<!-- <div id="breadcrumb"> <a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom"><i class="icon-home"></i>首页</a></div> -->
+				<!-- /BREADCRUMBS -->
+					<div class="clearfix">
+						<h3 class="content-title pull-left"><span><i class="fa-tachometer icon-spin "></i>&nbsp;&nbsp;</span>控制中心</h3>
+					</div> 
+					<div class="description">&nbsp;</div>
+			  </div>
+			  </div>
+			 </div>
+			  <div class="row">
+							<!-- COLUMN 1 -->
+							<div class="col-md-6">
+								<div class="row">
+								  <div class="col-lg-6">
+									 <div class="dashbox panel panel-default">
+										<div class="panel-body">
+										   <div class="panel-left red">
+												<i class="fa fa fa-users fa-3x"></i>
+										   </div>
+										   <div class="panel-right">
+												<div class="number">6718</div>
+												<!--<div class="title">Likes</div>-->
+												<span class="label label-success">
+													今日上网人数<i class="fa"></i>
+												</span>
+										   </div>
+										</div>
+									 </div>
+								  </div>
+								  <div class="col-lg-6">
+									 <div class="dashbox panel panel-default">
+										<div class="panel-body">
+										   <div class="panel-left blue">
+												<i class="fa fa-meh-o fa-3x"></i>
+										   </div>
+										   <div class="panel-right">
+												<div class="number">2724</div>
+												<!--<div class="title">今日用户数量</div>-->
+												<span class="label label-warning">
+													今日用户数量 <i class="fa "></i>
+												</span>
+										   </div>
+										</div>
+									 </div>
+								  </div>
+								</div>
+								
+							</div>
+							<!-- /COLUMN 1 -->
+							
+							
+						</div>
+					  
+					  <div class="row">
+							<div class="col-md-12">
+								<!-- BOX -->
+								<div class="box border blue">
+									<div class="box-title"> 
+											<h5><span class="icon"> <i class="icon-th"></i></span>&nbsp;&nbsp;&nbsp;</i>今日上网统计列表</h5>
+									  </div>
+									  
+									   <div class="box-body big">
+									  
+										<div id="placeholder" style="width:1300px;height:300px" ></div>
+									 
+									  
+									  </div>
+								</div>
+								<!-- /BOX -->
+							</div>
+							
+							<div class="col-md-12">
+								<!-- BOX -->
+								<div class="box border green">
+									<div class="box-title"> 
+											<h5><span class="icon"> <i class="icon-th"></i></span>&nbsp;&nbsp;&nbsp;</i>今日广告统计列表</h5>
+									  </div>
+									  
+									   <div class="box-body big">
+									  
+										<div id="placeholdera" style="width:1300px;height:300px" ></div>
+									 
+									  
+									  </div>
+								</div>
+								<!-- /BOX -->
+							</div>
+						</div>
+					  
+			<!--End-breadcrumbs-->
+			
+			
+			
+			
+			
+			<div id="noticebox" class="modal hide">
+				  <div class="modal-header">
+					<button data-dismiss="modal" class="close" type="button">×</button>
+					<h3 id="notice-title"></h3>
+				  </div>
+				  <div class="modal-body" id="notice-info">
+				  
+				  </div>
+				  <div class="modal-footer"><a data-dismiss="modal" class="btn " href="#">关闭</a> </div>
+            </div>
+<!--end-main-container-part-->
+</div>
+</div>
+</div>
+</div>
+   <include file="Pub:foot"/>
+
+
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.min.js"></script> 
+<script src="<#$Theme['P']['js']#>/flot/jquery.flot.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.ui.custom.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/bootstrap.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/matrix.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/new/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/new/jQuery-Cookie/jquery.cookie.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/bootstrap-datepicker.js"></script> 
+<!-- <script src="<#$Theme['P']['root']#>/matrix/js/new/script.js"></script>  -->
+
+
+<script type="text/javascript">
+  // This function is called from the pop-up menus to transfer to
+  // a different page. Ignore if the value returned is a null string:
+  function goPage (newURL) {
+
+      // if url is empty, skip the menu dividers and reset the menu selection to default
+      if (newURL != "") {
+      
+          // if url is "-", it is this page -- reset the menu:
+          if (newURL == "-" ) {
+              resetMenu();            
+          } 
+          // else, send page to designated URL            
+          else {  
+            document.location.href = newURL;
+          }
+      }
+  }
+
+// resets the menu selection upon entry to this page:
+function resetMenu() {
+   document.gomenu.selector.selectedIndex = 2;
+}
+
+function shownotice(t,obj){
+	$('#notice-title').text(t);
+	$('#notice-info').html($(obj).parent().next().html());
+	$('#noticebox').modal({backdrop:false,show:true});
+}
+//new jquery
+var hourlist=[];
+for(var i=0;i<=24;i++){
+	if(i<10){
+		hourlist.push(["0"+i,i+"点"]);
+	}else{
+		hourlist.push([i,i+"点"]);
+	}
+}
+var daylist=[];
+for(var i=1;i<=31;i++){
+	if(i<10){
+		daylist.push(["0"+i,i+"号"]);
+	}else{
+		daylist.push([i,i+"号"]);
+	}
+}
+	$(function () {
+	
+	var stack = 0, bars = true, lines = false, steps = false;
+	//上网统计
+	     $.ajax({
+			  url: '<#:U('user/getrpt')#>',
+		        type: "get",
+				data:{
+					'mode':'today',
+					
+					},
+				dataType:'json',
+				error:function(){
+						AlertTips("服务器忙，请稍候再试",2000);
+						},
+				success:function(data){
+				
+						$('#btnkey').val('today');
+						var bt=[];
+						data=eval(data)  ;
+						for(var vo in data){
+							
+							bt.push([data[vo].t,data[vo].ct]);
+						}
+						//alert(bt);
+						 $.plot($("#placeholder"), [ bt ], {grid: { hoverable: true, clickable: true, borderColor:'#000',borderWidth:1},xaxis:{ticks:hourlist},series:{lines:{fill:true, show: true}, points:
+						    { show: true,
+						    	  }}});
+						
+				}
+			  });
+			  
+	//广告统计
+
+		$.ajax({
+			  url: '<#:U('user/getadrpt')#>',
+		        type: "get",
+				data:{
+					'mode':'today',
+					
+					},
+				dataType:'json',
+				error:function(){
+						AlertTips("服务器忙，请稍候再试",2000);
+						},
+				success:function(data){
+						var bt=[];
+						var bt_hit=[];
+						data=eval(data);
+						for(var vo in data){
+							
+							bt.push([data[vo].t,data[vo].showup]);
+							bt_hit.push([data[vo].t,data[vo].hit]);
+						}
+						var dataset=[{label:"广告展示",data:bt},{label:"广告点击",data:bt_hit}]
+						$.plot($("#placeholdera"), dataset, 
+									{grid: { hoverable: true, clickable: true, borderColor:'#000',borderWidth:1},
+									 xaxis:{ticks:hourlist},
+									 series:{lines:{fill:true, show: true},points:{ show: true,}}}
+								  );
+								  
+						rendertable(data);
+						
+				}
+			  });
+
+
+	
+	});
+	
+	
+function rendertable(data){
+
+	$("#gridbox").empty();
+	var trHtml="";
+	for(var vo in data){
+		trHtml+="<tr>";
+		trHtml+="<td>"+data[vo].showdate+"</td>";
+		trHtml+="<td>"+data[vo].showup+"次</td>";
+		trHtml+="<td>"+data[vo].hit+"次</td>";
+		trHtml+="<td>"+data[vo].rt+"%</td>";
+		trHtml+="</tr>";
+
+	}
+	$("#gridbox").append(trHtml);
+}	
+
+</script>
+</body>
+</html>

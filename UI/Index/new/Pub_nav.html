@@ -1,0 +1,78 @@
+<!--sidebar-menu-->
+<section id="page">
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+	<div class="sidebar-menu nav-collapse">
+	  <ul>
+		<li class="<if condition="($a == 'index')">active"</if>" ><a href="<#:U('User/index')#>"><i class=" fa fa-tachometer fa-fw"></i> <span class="menu-text">首页
+		</span><span class="selected"></span></a> </li>
+		 <li class="<if condition="($a == 'info')">active"</if>"> <a href="<#:U('User/info')#>"><i class=" fa fa-user fa-fw"></i> <span>商户信息</span></a> </li>
+		 
+		<!-- <li class="has-sub submenu <if condition="($a == 'report')">active"</if>" > <a href="#" id="urpt"><i class="icon icon-user"></i> <span class="menu-text">设置修改</span>
+			 <span class="arrow"></span>
+			 </a>
+				  <ul class="sub">
+					<li><a href="<#:U('Wifiset/base')#>"><span class="sub-menu-text">基本信息</span></a></li>
+					<li><a href="<#:U('Wifiset/renzheng')#>"><span class="sub-menu-text">认证信息</span></a></li>
+					<li><a href="<#:U('Wifiset/neiwang')#>"><span class="sub-menu-text">内网信息</span></a></li>
+					<li><a href="<#:U('Wifiset/waiwang')#>"><span class="sub-menu-text">外网信息</span></a></li>
+				  </ul>
+		</li>-->
+		 
+		 
+		<!--  <li class="<if condition="($a == 'lianmeng')">active"</if>"> <a href="<#:U('User/lianmengset')#>"><i class=" fa fa-globe fa-fw"></i> <span>联盟设置</span></a> </li> -->
+		<li class="<if condition="($a == 'application')">active"</if>"> <a href="<#:U('User/application')#>"><i class=" fa fa-cogs fa-fw"></i> <span>应用设置</span></a> </li>
+			   <li class="<if condition="($a == 'routemap')">active"</if>"> <a href="<#:U('User/routemap')#>"><i class=" fa fa-group fa-fw"></i> <span>路由管理</span></a> </li>
+		  <li class="<if condition="($a == 'authtplset')">active"</if>"> <a href="<#:U('Authset/tplset')#>"><i class="fa fa-th fa-fw"></i> <span>认证页面</span></a> </li>
+		 
+		 
+		 <li class="has-sub submenu <if condition="($a == 'adv')">active"</if>"> <a href="#" id="adv"><i class="fa fa-cloud fa-fw""></i> <span class="menu-text">广告管理</span>
+		  <span class="arrow"></span>
+		 </a>
+				<ul class="sub">
+				<li><a href="<#:U('User/adv')#>"><span class="sub-menu-text">广告管理</span></a></li>
+				
+				 <li><a href="<#:U('User/advrpt')#>"><span class="sub-menu-text">广告统计</span></a></li>
+				 <li><a href="<#:U('User/actrpt')#>"><span class="sub-menu-text">活动发布</span></a></li>
+				
+			  </ul>
+	   </li>
+	   
+		<!-- <li class="has-sub submenu <if condition="($a == 'web3g')">active"</if>"> <a href="#" id="web3g"><i class=" fa fa-th-large fa-fw"></i> <span class="menu-text">手机网站</span>
+				 		<span class="arrow"></span>
+				 			   </a>
+				  <ul class="sub">
+				 					<li><a href="<#:U('index/web/index')#>"><span class="sub-menu-text">网站设置</span></a></li>
+				 					
+				 					 <li><a href="<#:U('web/catelog')#>"><span class="sub-menu-text">网站分类</span></a></li>
+				 					 <li><a href="<#:U('web/arts')#>"><span class="sub-menu-text">文章管理</span></a></li>
+				 					  <li><a href="<#:U('web/tempset')#>"><span class="sub-menu-text">模板管理</span></a></li>
+				 					  <li><a target="_blank" href="http://www.wyywifi.com/index.php/api/wap/index/sid/<#$Think.session.uid#>.html"><span class="sub-menu-text">网站预览</span></a></li>
+				  </ul>
+				 		</li> -->
+		 <li class="<if condition="($a == 'comment')">active"</if>"> <a href="<#:U('User/comment')#>"><i class="fa fa-comment fa-fw"></i> <span>客户留言</span></a> </li>
+		<li class="has-sub submenu <if condition="($a == 'report')">active"</if>" > <a href="#" id="urpt"><i class="fa fa-user fa-fw"></i> <span class="menu-text">用户统计</span>
+			 <span class="arrow"></span>
+			 </a>
+				  <ul class="sub">
+					<li><a href="<#:U('User/userchart')#>"><span class="sub-menu-text">统计报表</span></a></li>
+					<li><a href="<#:U('User/report')#>"><span class="sub-menu-text">用户列表</span></a></li>
+				  </ul>
+		</li>
+		
+		
+		<li class="<if condition="($a == 'online')">active"</if>"> <a href="<#:U('User/rpt')#>"><i class="fa fa-signal fa-fw"></i> <span>上网统计</span></a> </li>
+	   <li class="has-sub submenu <if condition="($a == 'advfun')">active"</if>" > <a href="#" id="sale"><i class="fa fa-phone fa-fw"></i> <span class="menu-text">营销管理</span>
+	   <span class="arrow"></span>
+	   </a>
+		  <ul class="sub">
+			<li><a href="<#:U('index/Adv/phonelist')#>"><span class="sub-menu-text">手机号码管理</span></a></li>
+			<!--  <li><a href="<#:U('adv/set')#>"><span class="sub-menu-text">短信帐号管理</span></a></li>
+			<li><a href="<#:U('adv/sms')#>"><span class="sub-menu-text">短信群发</span></a></li>
+			<li><a href="<#:U('adv/smslist')#>"><span class="sub-menu-text">短信发送列表</span></a></li> -->
+		  </ul>
+		</li>
+	  
+	  </ul>
+	</div>
+</div>
+	<!--sidebar-menu-->

@@ -1,0 +1,219 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="Shortcut Icon" href="http://i3.dpfile.com/s/res/favicon.5ff777c11d7833e57e01c9d192b7e427.ico" type="image/x-icon">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="email=no">
+<meta name="apple-mobile-web-app-title" content="">
+
+<link rel="apple-touch-icon-precomposed" href="http://m1.s2.dpfile.com/m/img/app/dianping/logoforiphone.18d57124e8e10c79337a27dadabc4314.png">
+<link rel="apple-touch-startup-image" href="http://m1.s2.dpfile.com/m/img/app/dianping/iphonesplash.1ec20beb9fdd2d308b5dcd3d43c39e90.png">
+<link rel="stylesheet" href="<#$Theme['P']['root']#>/lianmeng/~mod~mobile-download-banner~0.1.10~css~style.css,~mod~app-m-dianping~1.1.3~css~style.css" type="text/css">
+
+
+<title>微云易WIFI</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta name="location" content="province=河南;city=平顶山">
+<script>var G_rtop=+new Date, _hip = [
+['_setPageId', 210007],
+['_setCityId', 163]
+];
+window.onload=function() {
+	setTimeout(function() {
+		if(window.pageYOffset !== 0) return;
+		window.scrollTo(0, 1);
+	}, 300);
+ };
+</script>
+</head>
+<body>
+<script>
+    _hip.push(['_setPVInitData', {p_render: +(new Date) - G_rtop, module: '0_mshopsearch_queryid', action: 'browse', query_id: '92e6535e-b0ec-4d16-90c1-4a369563cdcf'}]);
+</script>
+<script>
+    var width = window.innerWidth;
+    var left = parseInt((width - 48) / 3);
+    document.write('<style>.hotarea{width:' + left + 'px;}</style>');
+</script><style>.hotarea{width:544px;}</style><style>.hotarea{width:544px;}</style>
+
+<header class="list-head">
+        <div class="list-type-cnt">
+            <div class="list-type">
+                <a href="#" class="on" onclick="" style="border-radius: 5px;width:150px;">商户</a>
+                <a href="#" style="display:none;">活动</a>
+            </div>
+        </div>
+
+</header>
+
+
+<nav class="list-nav ">
+	<script type="text/javascript" src="<#$Theme['P']['js']#>/jquery.js"></script>
+	<script>
+		var hei = 0;
+		function xianshi(id){
+			if(id==1){
+				$('#xianshi2').addClass('Hide');
+				$('#xianshi3').addClass('Hide');
+			}else if(id==2){
+				$('#xianshi1').addClass('Hide');
+				$('#xianshi3').addClass('Hide');
+			}else if(id==3){
+				$('#xianshi2').addClass('Hide');
+				$('#xianshi1').addClass('Hide');
+			}
+			$('#xianshi'+id).toggleClass('Hide');
+			if(hei==id){
+				$('#heimu').hide();
+				hei = 0;
+			}else{
+				$('#heimu').show();
+				hei = id;
+			}
+			
+		}
+		function allhide(){
+			$('#xianshi2').addClass('Hide');
+			$('#xianshi1').addClass('Hide');
+			$('#xianshi3').addClass('Hide');
+			$('#heimu').hide();
+			hei = 0;
+		}
+	</script>
+    <div class="cat Fix">
+        <a href="javascript:void(0)" onclick="xianshi(1);" class="item J_trigger">附近<i class="drop"></i></a>
+
+        <a href="javascript:void(0)" onclick="xianshi(2);" class="item J_trigger">
+        类型
+            <i class="drop"></i>
+        </a>
+
+        <a href="javascript:void(0)" onclick="xianshi(3);" class="item J_trigger">
+        消费水平
+            <i class="drop"></i>
+        </a>
+    </div>
+    <section class="selector J_selector Hide" id='xianshi1' style="overflow-y: auto;">
+       
+            <div style="-webkit-transition: 0ms cubic-bezier(0.1, 0.57, 0.1, 1); transition: 0ms cubic-bezier(0.1, 0.57, 0.1, 1); -webkit-transform: translate(0px, 0px) translateZ(0px);">
+					<php>
+						foreach($_SESSION['qus'] as $li){
+							echo '<div><a href="'.U('querydiqu',array('diqu'=>$li['Name'])).'"><p class="item Fix ">'.$li['Name'].'</p></a></div>';
+						}
+					</php>
+            </div>
+      </section>
+    <section class="selector J_selector Hide" id='xianshi2' style="overflow-y: auto;">
+        <div class="menu main" style="width:100%;">
+            <div style="padding-left:100px;">
+                    <div>
+                        <a href="<#:U('querytype',array('type'=>'餐饮'))#>"><p class="item Fix on">餐饮</p></a>
+                    </div>
+                    <div>
+                        <a href="<#:U('querytype',array('type'=>'酒店'))#>"><p class="item Fix ">酒店</p></a>
+                    </div>
+                    <div>
+                       <a href="<#:U('querytype',array('type'=>'咖啡厅'))#>"> <p class="item Fix ">咖啡厅</p></a>
+                    </div>
+                    <div>
+                        <a href="<#:U('querytype',array('type'=>'足浴'))#>"><p class="item Fix ">足浴</p></a>
+                    </div>
+                    <div>
+                        <a href="<#:U('querytype',array('type'=>'KTV'))#>"><p class="item Fix ">KTV</p></a>
+                    </div>
+					<div>
+                        <a href="<#:U('querytype',array('type'=>'购物商超'))#>"><p class="item Fix ">购物商超</p></a>
+                    </div>
+					<div>
+                        <a href="<#:U('querytype',array('type'=>'酒店宾馆'))#>"><p class="item Fix ">酒店宾馆</p></a>
+                    </div>
+					<div>
+                        <a href="<#:U('querytype',array('type'=>'休闲娱乐'))#>"><p class="item Fix ">休闲娱乐</p></a>
+                    </div>
+            </div>
+        </div>
+   </section>
+    <section class="selector J_selector Hide" id='xianshi3' style="overflow-y: auto;">
+        <div class="menu main full" style="padding-left:100px;">
+            <div>
+                    <div>
+                        <a class="item Fix" onclick="" href="<#:U('xiaofei',array('xiaofei'=>'低端'))#>">低端</a>
+						<a class="item Fix" onclick="" href="<#:U('xiaofei',array('xiaofei'=>'工薪'))#>">工薪</a>
+						<a class="item Fix" onclick="" href="<#:U('xiaofei',array('xiaofei'=>'小资'))#>">小资</a>
+						<a class="item Fix" onclick="" href="<#:U('xiaofei',array('xiaofei'=>'中高档'))#>">中高档</a>
+						<a class="item Fix" onclick="" href="<#:U('xiaofei',array('xiaofei'=>'高档'))#>">高档</a>
+						<a class="item Fix" onclick="" href="<#:U('xiaofei',array('xiaofei'=>'奢华'))#>">奢华</a>
+                    </div>
+            </div>
+        </div>
+    </section>
+</nav>
+
+<!--商户list-->
+<div class="shop-list J_list">
+        <input type="hidden" class="J_query_id" value="92e6535e-b0ec-4d16-90c1-4a369563cdcf">
+		<volist name="shops" id="vo">
+			<a class="item" onclick="" href="<php>if(strlen($vo['lianmengurl'])>0){echo 'http://'.$vo['lianmengurl']; }else{echo '#';}</php>">
+                <div class="cnt">
+                <h3 style='color:#FF8400;'><#$vo.shopname#>
+                        
+                </h3>
+                <div class="comment">
+                    <span class="star star-40"></span>
+					<if condition="$vo.zhekou eq '10'">
+						<span class="discount">无优惠</span>
+					<else/>
+                        <span class="discount"><#$vo.zhekou#>折起</span>
+					</if>
+                </div>
+                <div class="intro Fix">
+                    <span><#$vo.province#><#$vo.city#><#$vo.area#><#$vo.address#></span>
+                    <span class="type"><#$vo.trade#></span>					
+                    <span class="dis"><#$vo.juli#>m</span>
+                </div>
+            </a>
+				<a class="item" href="tel:<#$vo.tel#>" style="font-size:16px;"><#$vo.tel#></a>
+                </div>
+		</volist>
+    <div class="link-btn-wrap">
+	<style>
+		.pages a{
+			background-color:#FF8400;
+			color:white;
+			padding:3px 6px;
+			border-radius:5px;
+			margin:3px;
+		}
+		.pages span{
+			margin:3px;
+			background-color:black;
+			color:white;
+			padding:3px 6px;
+			border-radius:5px;
+		}
+	</style>
+	<div style="text-align:center;font-size:16px;margin-top:20px;" class="pages"><#$page#></div>
+    <a class="J_view_more link-btn" href="" data-page="2">&nbsp;</a>
+    </div>
+</div>
+
+<script async="" src="<#$Theme['P']['root']#>/lianmeng/app-m-dianping-list.js"></script>
+<script async="" src="<#$Theme['P']['root']#>/lianmeng/mobile-download-banner.js"></script>
+<script async="" src="<#$Theme['P']['root']#>/lianmeng/mobile-common-search.js"></script>
+<script async="" src="<#$Theme['P']['root']#>/lianmeng/~mod~mobile-common~0.1.19~mobile-common.js,~mod~mobile-common~0.1.18~mobile-common.js"></script>
+<script async="" src="<#$Theme['P']['root']#>/lianmeng/~mod~app-m-dianping~1.1.3~app-m-dianping.js,~mod~openapp~0.1.2~openapp.js"></script>
+<script async="" src="<#$Theme['P']['root']#>/lianmeng/mobile-common-nav.js"></script>
+<script async="" src="<#$Theme['P']['root']#>/lianmeng/~mod~hippo~1.2.5~hippo.js,~mod~cookie~0.1.2~cookie.js,~mod~iscroll~5.0.10~iscroll.js"></script>
+<script async="" src="<#$Theme['P']['root']#>/lianmeng/~mod~wepp-module-event~0.2.1~wepp-module-event.js,~mod~wepp-module-overlay~0.1.0~wepp-module-overlay.js,~mod~wepp-module-overlay~0.2.0~wepp-module-overlay.js,~mod~wepp-module-toast~0.1.3~wepp-m.js"></script>
+
+
+
+<div class="overlay" onclick="allhide();" id='heimu' style="top: 0px; left: 0px; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 200; position: fixed; display: none; background-position: initial initial; background-repeat: initial initial;"></div>
+<div class="overlay" style="top: 0px; left: 0px; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 9999; position: fixed; display: none; background-position: initial initial; background-repeat: initial initial;"></div><a onclick="window.scrollTo(0,0)" class="top-box Hide"><div class="arrow-ent"></div></a><div class="loc-bar"><div class="loc-place"><#$_SESSION['shop']['province']#><php>$z = $_SESSION['shop']['province'];if($z!='北京' && $z!='上海' && $z!='重庆' && $z!='天津'){echo $_SESSION['shop']['city'];}</php><#$_SESSION['shop']['area']#></div><a href="javascript:;" class="loc-refresh-btn" style="display:none;"></a></div>
+<style>
+.footer_banner{display:none;}
+</style>
+<include file="public:tongji"/>
+</body></html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title><#:C('sitename')#>--会员中心</title>
+<meta name="keywords" content="<#:C('keyword')#>"/>
+<meta name="description" content="<#:C('content')#>"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<include file="Pub:Css"/>
+<!-- <link rel="stylesheet" href="<#$Theme['P']['root']#>/matrix/css/uniform.css" />
+<link rel="stylesheet" href="<#$Theme['P']['root']#>/matrix/css/select2.css" /> -->
+<link rel="stylesheet" href="<#$Theme['P']['root']#>/matrix/js/new/select2/select2.min.css" /> 
+<link rel="stylesheet" href="<#$Theme['P']['root']#>/matrix/js/new/uniform/css/uniform.default.min.css" />
+</head>
+<body>
+   <include file="Pub:top"/>
+   <include file="Pub:nav"/>
+
+<div id="main-content">
+<!--main-container-part-->
+	<div class="container">
+		<div class="row">
+<div id="content" class="col-lg-12">
+<!-- <div id="content-header">
+  <div id="breadcrumb"> <a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom"><i class="icon-home"></i>首页</a>  <a href="#" class="current">应用设置</a> </div>
+  <h1>应用设置</h1>
+</div> -->
+
+	<div id="content-header" class="page-header">
+		<ul class="breadcrumb">
+			<li>
+				<!-- <i class="fa fa-home"></i> -->
+				<div id="breadcrumb"> <i class="icon-home fa fa-home"></i><a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom">首页</a></div> 
+			</li>
+			<li>应用设置</li>
+		</ul>
+		<!-- <div id="breadcrumb"> <a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom"><i class="icon-home"></i>首页</a></div> -->
+		<!-- /BREADCRUMBS -->
+			<div class="clearfix">
+				<h3 class="content-title pull-left"><span><i class="fa-cogs icon-spin "></i>&nbsp;&nbsp;</span>应用设置</h3>
+			</div> 
+			<div class="description">&nbsp;</div>
+	  </div>
+
+
+	<div class="col-md-12">
+		<!-- BASIC -->
+		<div class="box border primary">
+		<div class="box-title">
+			<!-- <h4><i class="fa fa-bars"></i>b</h4> -->
+			<div class="widget-title"> <span class="icon">  </span>
+         <h4><i class="fa fa-bars"></i>编辑</h4>
+        </div>
+		</div>	  
+	  <div class="box-body big">
+
+       
+        <form name='form' action="index.php?m=User&a=doapp" method="post" class="form-horizontal" enctype="multipart/form-data">
+ 		
+       		<div class="form-group">
+       		<div class="span1"></div>
+       			<div class="alert alert-block span10 hide" id="msgbox"> 
+              <h4 class="alert-heading">提示信息</h4>
+             <div id="alertmsg"></div>
+              </div>
+       		</div>
+			
+			<div class="form-group">
+              <label class="col-sm-2 control-label">认证模式:</label>
+              <div class="col-sm-9 controls">
+                <volist name="authmode" id="vo">
+              
+                <label class="checkbox">
+                  <input type="checkbox" class="uniform" onchange="yincangweixin(this)" value="<#$vo.key#>" name="authmode[]" id="xuanxiang<#$vo.key#>" <#:showauthcheck($vo['key'],$info['authmode'])#>/>
+                  <#$vo.txt#>
+				  </label>
+                                       </volist>
+               
+              </div>
+            </div>
+			
+			
+			<div class="form-group"  id="wxacc4">
+              <label class="col-sm-2 control-label">分享标题 :</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" placeholder="标题"  name="wxtitle" id="wxtitle" value="<#:$data['title']#>" />
+              	 <span class="help-block">请输入您想分享的标题</span>
+              </div>
+            </div>
+			
+			<if condition="$data eq true">
+				<div class="form-group"  id="wxpic4">
+             <label class="col-sm-2 control-label">分享标题图片 :</label>
+               <div class="col-md-10 controls">
+				<img src="<#$data.titlepic#>"  width="100" height="100" />
+              </div> 
+            </div>
+			<div class="form-group"  id="wxpic4">
+             <label class="col-sm-2 control-label">修改图片 :</label>
+               <div class="col-md-10 controls">
+               <input type="file" class="file-input"  name="img">
+			    <span class="help-block ">建议上传图片规格:720*480</span>
+                
+              </div> 
+            </div>
+			<else />
+			<div class="form-group"  id="wxpic4">
+             <label class="col-sm-2 control-label">分享标题图片 :</label>
+               <div class="col-md-10 controls">
+               <input type="file" class="file-input"  name="img">
+			    <span class="help-block ">建议上传图片规格:720*480</span>
+                
+              </div> 
+            </div>
+			</if>
+			
+            <div class="form-group"  id="wxacc">
+              <label class="col-sm-2 control-label">微信ID :</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" placeholder="微信号"  name="wx" id="wx" value="<#:echojsonkey(showauthdata('3',$info['authmode']),'user')#>" />
+              	 <span class="help-block">请输入您想让用户关注的微信名称</span>
+              </div>
+            </div>
+			
+            <div class="form-group" id="wxauth" >
+              <label class="col-sm-2 control-label">认证方式: </label>
+              <div class="col-sm-9">
+                <input style="display:none;" type="text" class="form-control" placeholder="微信认证密码 " name="wxauthpwd" id="wxauthpwd" value="123456"/><!--<#:echojsonkey(showauthdata('3',$info['authmode']),'pwd')#>-->
+               <span class="help-block" style="display:none;">输入微信认证上网的认证密码</span>
+			   <span class="help-block" style="color:red;">设置图文回复,关键词为"上网",外部链接为：http://www.wyywifi.com/index.php/api/wxlogin/index/</span>
+			   <p>如使用微信认证,请复制以下白名单地址在路由器中设置:</p>
+			        
+<pre class="prettyprint linenums " style="width:90%">
+<ol class="linenums" id="baimingdan">
+qq.com,weixin.com,short.weixin.qq.com,long.weixin.qq.com,szshort.weixin.qq.com,wyywifi.com,apple.com,captive.apple.com</ol></pre>
+</div>
+            </div>
+			
+			
+			
+             <div class="form-group">
+              <label class="col-md-2 control-label">上网时段控制 :</label>
+              <div class="col-sm-10">
+                 
+				 <select name="sh" id="sh" class="col-md-2" >
+                  <for start="0" end="24">
+					<option value="<#$i#>" <eq name="info['sh']" value="$i">selected</eq>><#$i#>:00点</option>
+					</for>      
+                  </select>
+				  
+				  <div class="col-md-1">到</div>
+                  <!-- <label class="span1">到</label> -->
+                
+				<select name="eh" id="eh" class="col-md-2">
+                  	<for start="0" end="24">
+					<option value="<#$i#>" <eq name="info['eh']" value="$i">selected</eq>><#$i#>:00点</option>
+					</for>
+                  </select>
+                 
+              	
+              </div>
+			  <span class="help-block" style="margin-left=10px">允许用户上网的时间范围。注:比如 7:00~20:00点</span> 
+            </div>
+			
+			 <div class="form-group">
+			   <label class="col-md-2 control-label">上网限制 :</label>
+              <div class="col-sm-10 controls">
+                 <label>
+                <input type="radio" value="1" name="countflag" <eq name="info['countflag']" value="1">checked</eq>>启用
+                 </label>  
+                 <label> 
+                  <input type="radio" value="0" name="countflag" <eq name="info['countflag']" value="0">checked</eq>>停用
+				  
+    		</label>
+               <span class="help-block">上网限制,可有效防止员工长时间占用无线网络</span> 
+              </div>
+			  
+			 
+			 </div>
+			 
+			<div class="form-group">
+			   <label class="col-md-2 control-label">上网允许认证次数 :</label>
+              <div class="col-sm-9 controls">
+                <input type="text"  class="form-control" placeholder="请输入认证次数"  name="countmax" id="countmax" value="<#$info['countmax']#>"/>
+              <span class="help-block">本日允许使用wifi的次数（在启用上网限制功能后有效）</span>
+              </div>
+			 </div>
+			 
+            <div class="form-group">
+              <label class="col-md-2 control-label">上网时间限制 :</label>
+              <div class="col-sm-9  controls">
+                <input type="text"  class="form-control" placeholder="请输入时间(单位:分钟)"  name="timelimit" id="timelimit" value="<#$info['timelimit']#>"/>
+              <span class="help-block">允许用户上网的时间(单位:分钟)。注:不限制时间请填:0</span>
+              </div>
+            </div>
+			
+            <div class="form-group">
+              <label class="col-md-2 control-label">认证后行为:</label>
+              <div class="col-sm-9 controls">
+               
+              <label>
+                <input type="radio" value="1" name="authaction" <eq name="info['authaction']" value="1">checked</eq>>跳转指定网页
+                 </label>  
+                 <label> 
+                  <input type="radio" value="0" name="authaction" <eq name="info['authaction']" value="0">checked</eq>>不跳转
+    		</label>
+      				 <label>
+      				 <input type="radio" value="2" name="authaction" <eq name="info['authaction']" value="2">checked</eq>>跳转请求网页
+				 </label>       
+               <!--  <label>
+						 <input type="radio" value="3" name="authaction" <eq name="info['authaction']" value="3">checked</eq>>跳转到微官网
+				 </label>   --> 
+				  <span class="help-block">用户通过认证后引导用户行为选择。</span> 
+              </div>
+            </div>
+             
+            <div class="form-group">
+              <label class="col-md-2 control-label">指定跳转URL :</label>
+              <div class="col-sm-9  controls">
+                <input type="text" class="form-control" placeholder="跳转网页地址 " name="jumpurl" id="jumpurl" value="<#$info['jumpurl']#>"/>
+              </div>
+            </div>
+       
+            <div class="form-actions">
+              <input type="submit" class="btn btn-success" name="sub" value="保存"/>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+  </div>
+  
+</div></div> 
+   <include file="Pub:foot"/>
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.ui.custom.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/bootstrap.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/matrix.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.uniform.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/select2.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/common.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/new/jquery-uploadify/jquery.uploadify.js"></script> 
+<script>
+function copyText(obj) 
+{ 
+$(document).ready(function(){
+	$('input[type=checkbox],input[type=radio],input[type=file]').uniform();
+	
+	$('select').select2();
+
+	$("input[name='authmode[]']").each(function(){
+		if($(this).attr('checked')&&$(this).val()==3){
+			$('#wxauth').show();
+			$('#wxacc').show();
+		}
+		$(this).bind('click',function(){
+				
+				if($(this).attr('checked')&&$(this).val()==3){
+						$('#wxauth').show();
+						$('#wxacc').show();
+				}else if(!$(this).attr('checked')&&$(this).val()==3){
+						$('#wxauth').hide();
+						$('#wxacc').hide();
+				}
+		});
+	});
+
+	$("input[name='sub']").bind('click',function(){
+		var rs=true;
+		
+		
+		
+		$("input[name='authmode[]']").each(function(){
+			if($(this).attr('checked')&&$(this).val()==3){
+				
+					 var v=$('#wxauthpwd').val();
+						
+					 if (v == "") {
+						
+						 AlertTips("请输入微信认证密码",2000);
+					        rs= false;
+					 }
+					 if(!isaccount(v)){
+						
+						 AlertTips("请输入微信认证密码",2000);
+					        rs= false;
+					 }
+					 var wx=$('#wx').val();
+						
+					 if (wx == "") {
+						
+						 AlertTips("请输入微信账号",2000);
+					        rs= false;
+					 }
+				
+				}
+		});
+			
+		return rs;
+	});
+});
+</script>
+
+			<script>
+				if($('#xuanxiang3').attr('checked')!="checked"){
+					$("#wxacc").hide();
+					$("#wxauth").hide();
+				}
+				if($('#xuanxiang4').attr('checked')!="checked"){
+					$("#wxacc4").hide();
+					$("#wxpic4").hide();
+				}
+				function yincangweixin(tt){
+					if(tt.id=="xuanxiang3"){
+							$("#wxacc").toggle();
+							$("#wxauth").toggle();
+					}
+					if(tt.id=="xuanxiang4"){
+							$("#wxacc4").toggle();
+							$("#wxpic4").toggle();
+					}
+				}
+				
+				
+			</script>
+</body>
+</html>

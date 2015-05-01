@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title><#:C('sitename')#>--会员中心</title>
+<meta name="keywords" content="<#:C('keyword')#>"/>
+<meta name="description" content="<#:C('content')#>"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<include file="Pub:Css"/>
+	 <link rel="stylesheet" href="<#$Theme['P']['root']#>/matrix/css/uniform.css" />
+	<!--  <link rel="stylesheet" href="<#$Theme['P']['root']#>/matrix/css/new/jquery-upload/css/jquery.fileupload.css" />
+	 <link rel="stylesheet" href="<#$Theme['P']['root']#>/matrix/css/new/jquery-upload/css/jquery.fileupload-ui.css" /> -->
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=18E7F3FA5b3d576acdfafbee1f491217"></script>
+</head>
+<body>
+
+
+   <include file="Pub:top"/>
+   <include file="Pub:nav"/>
+
+
+<div id="main-content">
+	<div class="container">
+		<div class="row">
+<!--main-container-part-->
+<div id="content" class="col-lg-12">
+<!--breadcrumbs-->
+  
+  <div id="content-header" class="page-header">
+		<ul class="breadcrumb">
+			<li>
+				<!-- <i class="fa fa-home"></i> -->
+				<div id="breadcrumb"> <i class="icon-home fa fa-home"></i><a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom">首页</a></div> 
+			</li>
+			<li>栏目编辑</li>
+		</ul>
+		<!-- <div id="breadcrumb"> <a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom"><i class="icon-home"></i>首页</a></div> -->
+		<!-- /BREADCRUMBS -->
+			<div class="clearfix">
+				<h3 class="content-title pull-left"><span><i class="icon-spinner icon-spin "></i>&nbsp;&nbsp;</span>栏目编辑</h3>
+			</div> 
+			<div class="description">&nbsp;</div>
+	  </div>
+  
+  
+<!--End-breadcrumbs-->
+  <div class="col-md-12">
+  <div class="box border primary">
+		<div class="box-title">
+        	
+			<!-- <h4><i class="fa fa-bars"></i>b</h4> -->
+			<div class="widget-title"> <span class="icon">  </span>
+         <h4><i class="fa fa-bars"></i>编辑</h4>
+        </div>
+		</div>	 
+		
+         <div class="box-body big">
+        <form action="<#:U('index/user/addactlog')#>" method="post" class="form-horizontal" enctype="multipart/form-data">
+		<!-- <div class="form-group">
+              <label class="col-sm-2  control-label">栏目类别 :</label>
+              <div class="col-md-10 controls">
+               	<select class="col-md-3" name="mode" id="mode" onchange="showBox(this);">
+               			<option value="0">图文</option>
+               			<option value="1">链接</option>
+               			<option value="2">电话号码</option>
+               			<option value="3">地图导航</option>
+               	</select>
+              </div>
+            </div> -->
+			
+            <div class="form-group">
+              <label class="col-sm-2 control-label">活动名称 :</label>
+              <div class="col-md-10 controls">
+                <input type="text" class="form-control" placeholder="活动名称 "  name="title" id="title" value="" />
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label class="col-sm-2 control-label">活动描述 :</label>
+              <div class="col-md-10 controls">
+              	<textarea name="info" id="info" class="autosize form-control"></textarea>  
+              </div>
+            </div>
+
+           
+            
+	             <div class="form-group">
+	              <label class="col-sm-2 control-label">联系电话 :</label>
+	              <div class="col-md-10 controls">
+	 					<input type="text" class="form-control" placeholder="请输入电话号码"  name="tel" id="tel" value="" />
+	              </div>
+	            </div>
+            
+			
+            
+	          <!--    <div class="form-group">
+	              <label class="col-sm-2 control-label">链接网址 :</label>
+	              <div class="col-md-10 controls">
+	              	 					<input type="text" class="form-control" placeholder="请输入网址"  name="url" id="url" value="" />
+	              </div>
+	              	            </div>
+	                           -->
+			 
+	             <div class="form-group">
+	              <label class="col-sm-2 control-label">原价 :</label>
+	              <div class="col-md-2 controls">
+	 					<input type="text" class="form-control" placeholder="原价"  name="price_x" id="price_x" value="" />
+	              </div>
+	            </div>
+				<div class="form-group">
+	              <label class="col-sm-2 control-label">活动价 :</label>
+	              <div class="col-md-2 controls">
+	 					<input type="text" class="form-control" placeholder="活动价"  name="price_y" id="price_y" value="" />
+	              </div>
+	            </div>
+            
+			
+			
+            
+	             <div class="form-group">
+						<input type="hidden" name="btnkey" id="btnkey" value="today" sdate="" edate="">
+						<label class="col-sm-2 control-label">开始日期:</label>
+					
+					   <input type="text" name="sdate" id="sdate" value="" data-date-format="yyyy-mm-dd" class="span2 datepicker" readonly="readonly">
+						 <label class="control-label col-md-1">结束日期:</label>
+					   <input type="text" name="edate" id="edate" value="" data-date-format="yyyy-mm-dd" class="span2 datepicker" readonly="readonly">
+							
+				</div>
+	        
+			
+             <div class="form-group">
+              <label class="col-sm-2 control-label">栏目图片 :</label>
+               <div class="col-md-10 controls">
+               <input type="file" class="file-input"  name="img">
+			    <span class="help-block ">建议上传图片规格:720*480</span>
+                
+              </div> 
+			  
+			  
+			  
+              <!--  <div class="col-sm-offset-2 col-sm-8">
+				              <span class="help-block ">建议上传图片规格:720*480</span>
+				                
+				              </div> -->
+				
+              </div>
+              
+        
+			
+           
+				
+				
+            <div class="form-actions">
+            
+            
+              <button type="submit" class="btn btn-success">保存</button>
+            </div>
+          </form>
+        </div>
+   
+      
+      
+    </div>
+    
+  </div>
+  
+</div>
+</div>
+  </div>
+  
+</div>
+</div>
+
+<!--end-main-container-part-->
+
+   <include file="Pub:foot"/>
+
+
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.ui.custom.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/bootstrap.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/matrix.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.uniform.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/common.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/bootstrap-datepicker.js"></script> 
+
+
+<script>
+
+function downjump(){
+	var para="&mode="+$('#btnkey').val();
+	para+="&sdate="+$('#btnkey').attr('sdate');
+	para+="&edate="+$('#btnkey').attr('edate');
+	location.href="index.php?g=index&m=user&a=downchart"+para;
+
+}
+
+
+$(function () { 
+
+ $('.datepicker').datepicker();
+	/* $("#query").bind("click",function(){
+			var st=new Date($("#sdate").val());	
+			var et=new Date($("#edate").val());	
+			if(st.getTime()>et.getTime()){
+				alert("开始日期不能大于结束日期",2000);
+					return;
+			}
+
+		})*/	
+
+	})		
+
+
+
+</script>
+</body>
+</html>

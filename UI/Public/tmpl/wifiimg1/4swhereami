@@ -1,0 +1,2150 @@
+<!DOCTYPE HTML>
+<html lang="zh_cn">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<style type="text/css">
+		html {overflow-y:scroll;_text-overflow:ellipsis;}
+		/*全局*/
+		body {
+			font: 12px/1.5 arial,\5b8b\4f53,georgia,verdana,helvetica,sans-serif;
+		}
+		body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, pre, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+			margin: 0;
+			padding: 0;
+		}
+		body, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ul, ol, li, form, th, td, button, input, select, textarea, blockquote, pre, fieldset, legend {
+			margin: 0;
+			padding: 0;
+		}
+		h1, h2, h3, h4, h5, h6, input, textarea, select, address, caption, cite, code, dfn, em, i, b, strong, small, th, var, abbr {
+			font-size: 100%;
+			font-style: normal;
+		}
+		body, button, input, select, textarea {
+			font: 12px/1.5 Arial;
+		}
+		ul, ol {
+			list-style: none;
+		}
+		a {
+			text-decoration:none;
+			cursor: pointer;
+			color:#333;
+		}
+		a:hover{color:#e60012}a:active{color:#f60}
+		.green {
+			color: #19a919  !important;
+		}
+		img {
+			border:none;
+		}
+		#doc-view {
+			width:100%;
+			min-width:1002px;
+			color: #333;
+			z-index:1;
+		}
+		.theme-doc {
+			/*background: #f3f3f3 url(http://p1.qhimg.com/t01758d595582ec209e.jpg) repeat-x 0 -485px;*/
+			background-color:#eee;
+		}
+		/*头部开始*/
+		#doc-hd, #doc-bd, #doc-ft {
+			position: relative;
+		}
+		#topbar {
+			position: relative;
+			height: 28px;
+		}
+		.theme-topbar {
+			background: #f8f8f8;
+			border-bottom: 1px solid #d6d6d6;
+		}
+		.container {
+			margin:0 auto;
+			width:1000px;
+		}
+		.gclearfix, #channel, .hd, .bd, .ft, .gmodule {
+			zoom:1;
+		}
+		.theme-topbar-anchor-parent a {
+			color: #666;
+		}
+		#top-menu {
+			float: left;
+			line-height: 28px;
+		}
+		#top-menu a {
+			margin: 0 5px;
+		}
+		#top-toolbar {
+			float: right;
+		}
+		#toolbar-yupan, #toolbar-feedback, #toolbar-edition a, #toolbar-themetrigger {
+			overflow: hidden;
+			display: inline;
+			position: relative;
+			float: left;
+			margin-left: 15px;
+			padding-left: 24px;
+			height: 28px;
+			line-height: 28px;
+			line-height: 30px\9;
+		}
+		.theme-header .theme-icon {
+			color: #aaaaab;
+		}
+		.icon-feedback, .icon-yupan, .icon-themetrigger, .icon-edition {
+			position: absolute;
+			top: 7px;
+			left: 4px;
+			font-size: 14px;
+		}
+		.icon-selected, .icon-edition, .icon-themetrigger, .icon-feedback, .icon-yupan, .icon-joke, .icon-email, .icon-future {
+			font-family: 'hao360';
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			-webkit-font-smoothing: antialiased;
+		}
+		#doc-bd, #doc-main-bd, #partner-bd {
+			z-index: 200;
+		}
+		#doc-main {
+			z-index: 100;
+		}
+		
+		.theme-header .theme-border {
+			border-color: #ddd;
+		}
+		
+		#header-frame {
+			z-index: 90;
+			position: relative;
+			height: 70px;
+			line-height: 24px;
+		}
+		#header-frame .item-logo {
+			position: absolute;
+			top: 9px;
+			left: 0;
+			width:410px;
+			height:50px;
+		}
+		#imgLogo {
+			position: absolute;
+			left: 12px;
+			width:100%;
+			height:52px;
+			border-width:0 2px 0 0;
+			border-style: solid;
+			text-align: center;
+		}
+		#imgLogo span {
+			font-size:30px;
+			*font-size:30px;
+			display:block;
+			padding-top:3px;
+			color:#0096db;
+			text-align:center;
+		}
+		#imgLogo p {
+			font-size:14px;
+		}
+		#imgLogo p a{
+			font-weight:bold;
+		}
+		#tips {
+			position: relative;
+			font-size: 14px;
+			line-height:30px;
+			top:30px;
+			left:70px;
+			*left:70px;
+			width:100%;
+			height: 30px;
+		}
+		#tips a {
+			dispaly:inline-block;
+			margin-right:5px;
+		}
+		#header-frame .item-weather {
+			position: absolute;
+			top: 9px;
+			left:420px;
+			width:406px;
+			height: 52px;
+			border-width:0 2px 0 0;
+			border-style: solid;
+		}
+		#weather {
+			width:100%;
+			height:52px;
+		}
+		#weather .inner {
+			overflow: hidden;
+		}
+		#weather .city {
+			float:left;
+			padding-top:15px;
+			width:70px;
+			text-align:center;
+		}
+		#weather .city .name {
+			overflow: hidden;
+			height:22px;
+			text-align: center;
+			font-size: 14px;
+			font-weight: 800;
+		}
+		#weather .city .change {
+			font-family: simsun;
+		}
+		#weather .today {
+			min-width: 172px;
+			_width: 172px;
+		}
+		#weather .today, #weather .tomorrow {
+			padding: 1px;
+		}
+		#weather .today, #weather .tomorrow, #weather .future {
+			float: left;
+			display: inline;
+		}
+		#weather .pic {
+			float: left;
+			width:70px;
+			height: 50px;
+		}
+		#weather .weather-extend {
+			z-index: 2;
+			overflow: hidden;
+			position: absolute;
+			top: 24px;
+			left: 140px;
+			height: 22px;
+			width: 110px;
+		}
+		#weather .tomorrow {
+			width: 132px;
+		}
+		#weather .future {
+			margin-top: 22px;
+			margin-left: 5px;
+			width: 10px;
+			height: 9px;
+		}
+		#calendar span {
+			display: block;
+			overflow: hidden;
+			padding: 0 2px;
+			height: 24px;
+		}
+		#header-frame .item-calendar {
+			position: absolute;
+			top: 9px;
+			left: 668px;
+			width: 122px;
+			height: 52px;
+		}
+		#calendar {
+			display: block;
+			width: 120px;
+			padding: 1px 0;
+			height: 50px;
+			text-align: center;
+			border-width: 0 1px;
+			border-style: solid;
+		}
+		#header-frame .item-last {
+			position: absolute;
+			top:15px;
+			left:823px;
+			padding-left:24px;
+			width:170px;
+			height:52px;
+		}
+		#joke {
+			overflow: hidden;
+			height: 20px;
+			line-height: 20px;
+		}
+		#joke .refresh {
+			overflow: hidden;
+			margin-top: 4px;
+			_margin-top: 3px;
+			margin-right: 6px;
+			width: 12px;
+			height: 12px;
+			cursor: pointer;
+		}
+		#joke a {
+			float: left;
+		}
+		#email {
+			position: relative;
+			margin-top: 2px;
+			width: 152px;
+		}
+		/***搜索区域***/
+		#search-frame {
+			z-index: 80;
+			position: relative;
+			height: 80px;
+		}
+		#search {
+			position: relative;
+			height: 80px;
+			clear: both;
+		}
+		.theme-search-bg {
+			border: 1px solid #b6d2f9;
+			background-image: url(http://p1.qhimg.com/t01634bd7d8ff019703.jpg);
+			background-color: #edf8ff;
+		}
+		.search-bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 998px;
+			height: 78px;
+			background-repeat: no-repeat;
+		}
+		#baidu-logo,
+		#bing-logo,
+		#so-logo,
+		#google-logo{
+			background-image: url(http://p1.qhimg.com/t01ab80c18db316241a.png);
+			cursor:pointer;
+			overflow: hidden;
+			position: absolute;
+			top:0px;
+			left: -4px;
+			width: 95px;
+			height: 35px;
+			text-indent: -1000px;
+			outline: 0;
+			background-repeat: no-repeat;
+		}
+		.so {
+			background-position: 4px -658px;
+		}
+		.bing {
+			background-position: 4px -560px;
+		}
+		.google {
+			background-position: 4px -160px;
+		}
+		.baidu {
+			background-position: 4px  -510px;
+		}
+		/*长导航*/
+		#longlong-frame {
+			position: relative;
+			margin:0;
+			*margin-top:5px;
+		}
+		#longlong {
+			overflow: hidden;
+			z-index: 2;
+			position: relative;
+			width: 955px;
+			height: 38px;
+		}
+		.theme-longlong {
+			background-color: transparent;
+		}
+		#longlong ul {
+			zoom: 1;
+			position: relative;
+		}
+		#longlong ul li {
+			position: relative;
+			float: left;
+			width:106px;
+			height:38px;
+		}
+		#longlong .tab-item {
+			background-image: url("http://p1.qhimg.com/t01a4baa14e3daeb7b7.png");
+			background-repeat:no-repeat;
+		}
+		#longlong .tab-item {
+			z-index: 1;
+			overflow: hidden;
+			position: relative;
+			float: left;
+			margin-right: -1px;
+			outline: none;
+			padding-left: 37px;
+			width: 68px;
+			height: 36px;
+			line-height: 36px;
+			font-size: 14px;
+			border-width: 1px;
+			border-style: solid dotted;
+			color: #333;
+			border-color: #c9cbce #fff #c9cbce #c9cbce;
+			background-color: #fff;
+		}
+		#longlong .on .tab-item, 
+		#longlong .on .tab-item:hover {
+			z-index:3;
+			line-height:34px;
+			height:34px;
+			width:68px;
+			border-top-width: 2px;
+			border-bottom-width: 0;
+			border-style: solid;
+			border-color: #54b82a #c9cbce #fff;
+			background-color: transparent;
+		}
+		#longlong .on .home {
+			background-position: 12px 10px;
+		}
+		#longlong-channel-home .hover-bg {
+			background: #b9d329;
+		}
+		#longlong .news {
+			background-position: 12px -28px;
+		}
+		/*头部结束
+		内容开始*/
+		#doc-main-hd, #doc-main-bd, #doc-main-ft {
+			position: relative;
+			clear:both;
+		}
+		.f-l {
+			float: left;
+		}
+		#doc-bd .f-l {
+			width: 745px;
+		}
+		#doc-bd .f-r {
+			width:252px;
+		}
+		.f-r {
+			float: right;
+		}
+		#activity.g-box, #honghong.g-box, #channel-sort.g-box, #top-channel.g-box, #user-channel.g-box, #top10-channel.g-box, #lifestyle.g-box {
+			border-color: #c9c9c9;
+			background-color: #fcfcfc;
+			border-style: solid;
+			border-width: 2px 1px 1px 1px;
+			border-color: #0096dd #dedede #dedede #dedede;
+		}
+		#hot-site, #iguess, #activity, #category-service, #service .g-box, #localcity, #honghong, #top-channel, #user-channel, #top10-channel {
+			-moz-box-shadow: 0 1px 2px #d3d3d3;
+			-webkit-box-shadow: 0 1px 2px #d3d3d3;
+			box-shadow: 0 1px 2px #d3d3d3;
+		}
+		#activity, #honghong, #channel-sort, #top-channel, #user-channel, #lifestyle {
+			width:250px;
+		}
+		.gmodule {
+			margin-top:5px;
+		}
+		.g-box {
+			font-size: 14px;
+			border-width: 1px;
+			border-style: solid;
+		}
+		.g-box .list {
+			overflow: hidden;
+			zoom: 1;
+		}
+		.g-box .list li {
+			float: left;
+			overflow: hidden;
+			height: 29px;
+			line-height: 29px;
+		}
+		/***热站*/
+		#hot-site, #mbar, #cool-site {
+			width: 743px;
+		}
+		#hot-site {
+			position: relative;
+			float: right;
+			padding: 0 0 6px;
+		}
+		#hot-site.g-box, #cool-site.g-box, #iguess.g-box {
+			border-color: #c9c9c9;
+			background-color: #fff;
+			border-style: solid;
+			border-width: 2px 1px 1px 1px;
+			border-color: #0096dd #dedede #dedede #dedede;
+		}
+		#mysite-section {
+			position: relative;
+			zoom: 1;
+			padding-top: 2px;
+			padding-bottom: 4px;
+		}
+		#famous-section .list {
+			overflow: visible;
+			padding: 5px 0 4px;
+		}
+		#famous-section .list li {
+			padding: 0 7px;
+			width: 14.7%;
+			text-align: center;
+		}
+		.g-box .list li {
+			float: left;
+			overflow: hidden;
+			height: 29px;
+			line-height: 29px;
+		}
+		.gclearfix:after, #channel:after, .hd:after, .bd:after, .ft:after, .gmodule:after {
+			display: block;
+			clear: both;
+			visibility: hidden;
+			height: 0;
+			content: '';
+		}
+		#iguess .iguess-hd {
+			margin: 0 4px;
+			padding: 0 9px;
+			height: 26px;
+			border-bottom: 1px dotted #e9e9e9;
+		}
+		#iguess .iguess-title {
+			float: left;
+			line-height: 26px;
+			font-weight: bold;
+			color: #3eaf0e;
+		}
+		#iguess .iguess-page {
+			display: none;
+			float: right;
+			line-height: 26px;
+			font-size: 12px;
+		}
+		#iguess .iguess-page .iguess-pre {
+			background-position: 0 0;
+		}
+		#iguess .iguess-page a {
+			overflow: hidden;
+			display: inline;
+			float: left;
+			margin: 4px 0 0 6px;
+			width: 19px;
+			height: 19px;
+			text-indent: -99em;
+			background-image: url(http://p1.qhimg.com/t014055b3ab8bc0c441.png);
+			background-repeat: no-repeat;
+		}
+		#iguess .item .subtitle a:hover,#iguess .item .huan:hover{color:#e60012}
+		#iguess .item {
+			position: relative;
+			overflow: hidden;
+			padding: 0 8px;
+			height: 30px;
+			zoom: 1;
+		}
+		#iguess .item .subtitle {
+			overflow: hidden;
+			z-index: 9;
+			position: relative;
+			float: left;
+			_margin-right: -3px;
+			padding-left: 4px;
+			width: 52px;
+			line-height: 29px;
+			font-weight: normal;
+		}
+		#iguess .item .subtitle a {
+			color: #07519a;
+		}
+		#iguess .item .list {
+			display: none;
+			margin-right:0px;
+		}
+		#iguess .item .on {
+			display: block;
+		}
+		#iguess .item .list li {
+			padding-right:8px;
+			width: 14%;
+		}
+		#iguess .item .huan {
+			position: absolute;
+			top: 0;
+			right: 12px;
+			width: 46px;
+			line-height: 29px;
+			font-size: 12px;
+			color: #919191;
+		}
+		#mbar {
+			float: right;
+			overflow: hidden;
+			margin-top: 0;
+			height: 32px;
+			line-height: 32px;
+			text-align: center;
+		}
+		#mbar .mbar-bd a {
+			margin: 0 8px;
+			font-size:14px;
+		}
+		/**firefox left area*/
+		.side-notice{
+			height: 38px;
+			line-height: 38px;
+			font-family:arial,tahoma,\5b8b\4f53;
+		}
+		.side-notice {
+			padding: 0px 10px;
+		}
+		.side-notice span{
+			color: #0096dd;
+			font-weight:bold;
+			float:left;
+		}
+		.side-notice div {
+			height:30px;
+			line-height:30px;
+			width:80px;
+			margin-top:7px;
+			_margin-top:10px;
+			display:inline-block;
+			overflow:hidden;
+			float:left;
+			margin-right:5px;
+		}
+		.side-notice  a {
+			font-size:15px;
+		}
+		.side-notice  a:hover {
+			color: #ff9500;
+			text-decoration: underline;
+		}
+		.side-tool {
+			overflow: hidden;
+			border-top: 1px dashed #ddd;
+			border-bottom: 1px dashed #ddd;
+		}
+		.side-tool li {
+			padding: 0px 15px 0px 8px;
+			text-align: right;
+			overflow: hidden;
+			height: 30px;
+			line-height: 30px;
+		}
+		.side-tool b {
+			float: left;
+			font-weight: normal;
+		}
+		.side-tool .tool-online b i {
+			background-position: -157px -221px;
+		}
+		.side-tool b .first {
+			background: none;
+			padding-left: 4px;
+		}
+		.side-tool b a {
+			overflow: hidden;
+			padding-left: 14px;
+			background-position: -184px -114px;
+		}
+		.side-tool b a {
+			overflow: hidden;
+			padding-left: 14px;
+			background-position: -184px -114px;
+		}
+		.side-tool .last {
+			display: block;
+			float: right;
+			max-width: 86px;
+			color: #858891;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			font-size:12px;
+		}
+		.side-app {
+			overflow: hidden;
+			margin-top: 1px;
+		}
+		.side-app .app-menu {
+			overflow: hidden;
+			clear: both;
+		}
+		.side-app .app-menu ul {
+			border-top: 2px solid #dedede;
+			border-bottom: 1px dashed #dedede;
+			height: 30px;
+		}
+		.side-app .app-menu .on {
+			margin-top: -2px;
+		}
+		.side-app .app-menu li {
+			float: left;
+			width: 33%;
+			overflow: hidden;
+			text-align: center;
+		}
+		.side-app .app-menu .on span {
+			color: #0096db;
+			border-top: 2px solid #0096db;
+			font-weight: bold;
+		}
+		.side-app .app-menu span {
+			padding: 0px 6px;
+			line-height: 30px;
+			display: inline-block;
+			cursor: pointer;
+		}
+		.side-app .app-mod {
+			display: none;
+			padding: 0px 25px;
+			height: 195px;
+			*height:190px;
+			overflow: hidden;
+		}
+		.side-app .app-mod ul {
+			overflow: hidden;
+			margin-top: 10px;
+		}
+		.side-app .app-mod li {
+			float: left;
+			width: 88px;
+			overflow: hidden;
+		}
+		.side-app .app-img {
+			height: 60px;
+			margin-bottom: 6px;
+			position: relative;
+			display: block;
+			overflow: hidden;
+		}
+		.side-app .app-mod li {
+			float: left;
+			width: 88px;
+			overflow: hidden;
+			line-height: 27px
+		}
+		.side-app .app-mod li.even {
+			float: right;
+		}
+		.side-app .app-link, .side-app .app-img span {
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			display: block;
+			max-width: 100%;
+		}
+		.side-app .app-link {
+			text-align: left;
+			display: block;
+		}
+		/**firefox left area*/
+		/*内容结束*/
+		/*尾部开始*/
+		#category-service.gmodule {
+			margin-top:5px;
+		}
+		#category-service.g-box {
+			border-color: #c9c9c9;
+			background-color: #fcfcfc;
+		}
+		#category-service {
+			overflow: hidden;
+			_border-right:0px;
+		}
+		#category-service .inner {
+			overflow: hidden;
+			zoom: 1;
+			width:1000px;
+		}
+		#category-service .panel {
+			overflow: hidden;
+			float: left;
+			padding: 10px 0 10px 16px;
+			width:316px;
+			border-right: solid 1px #c9c9c9;
+		}
+		
+		#category-service .inner .hover-panel{background-color:#f6faf4}
+		#category-service .subtitle {
+			background-image: url(http://p1.qhimg.com/t01efbe4fe7043d605a.png);
+			background-repeat: no-repeat;
+		}
+		#category-service .sh {
+			background-position: 0 5px;
+		}
+		#category-service .subtitle {
+			width: 62px;
+			font-weight: bold;
+		}
+		#category-service .subtitle, #category-service .title {
+			overflow: hidden;
+			padding-left: 22px;
+			height: 29px;
+			line-height: 29px;
+		}
+		#category-service .item-word {
+			overflow: hidden;
+			width: 316px;
+		}
+		#category-service .title {
+			width: 52px;
+			float: left;
+			font-weight: normal;
+		}
+		#category-service .item-word .list li {
+			width: 59px;
+		}
+		
+		#localcity .localcity-hd {
+			width: 998px;
+			height: 33px;
+			border-bottom: 1px solid #e4e4e4;
+			background: #f7f7f7;
+		}
+		#localcity .localcity-hd .title {
+			overflow: hidden;
+			float: left;
+			padding-left: 18px;
+			width: 211px;
+			height: 32px;
+			color: #3dae0d;
+		}
+		#localcity .localcity-hd .more {
+			display: inline;
+			float: right;
+			margin-right: 18px;
+			height: 32px;
+			line-height: 32px;
+			font-size: 12px;
+		}
+		#localcity .localcity-bd {
+			padding: 12px 0;
+		}
+		#service .g-box, #localcity.g-box {
+			border-color: #c9c9c9;
+			background-color: #fff;
+		}
+		/**firefox news start*/
+		.main-news {
+			margin-bottom: 0px;
+			position: relative;
+		}
+		.main-mod {
+			background: #fff;
+			border-style: solid;
+			border-width: 2px 1px 1px 1px;
+			border-color: #0096dd #dedede #dedede #dedede;
+			margin-bottom: 10px;
+			clear: both;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-o-box-sizing: border-box;
+			-ms-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		/**firefox news end*/
+		/*尾部结束*/
+		/*firefox search*/
+		.cont-engine {
+			padding: 5px 13px;
+			border: 1px solid #dedede;
+			height: 62px;
+			margin-bottom:5px;
+			background: #fff;
+		}
+		.engine-wrapper div {
+			float: left;
+		}
+		.engine-wrapper {
+			margin-left:100px;
+			height:100%;
+		}
+		.engine-main {
+			width:560px;
+		}
+		.engine-logo-show {
+			width:100%;
+			height:100%;
+		}
+		.engine-logo-show .engine-logo, .engine-logo-list a {
+			width:90px;
+		}
+		.engine-logos {
+			width: 108px;
+			margin: 20px 4px 0px 0px;
+			height: 40px;
+			float: left;
+			position: relative;
+		}
+		.engine-action .engine-key-wrapper {
+			border: 1px solid #0096dd;
+			height: 30px;
+			background: #fff;
+			position: relative;
+			margin-right: 2px;
+			width: 470px;
+		}
+		.engine-action .engine-key {
+			width:99%;
+			border: 0px;
+			margin-right:2px;
+			background: transparent;
+			height:25px;
+			padding:3px 0px 3px 6px;
+			border:none;
+			font-size:14px;
+		}
+		.engine-menu {
+			clear: both;
+			height: 24px;
+			overflow: hidden;
+		}
+		.engine-menu a.on {
+			height: 23px;
+			font-weight: bold;
+			color: #0096db;
+			border-bottom: 1px solid #0096dd;
+		}
+		.engine-menu a {
+			float:left;
+			padding:0px 7px;
+			display:block;
+			width:40px;
+			text-align:center;
+			height:24px;
+			line-height: 24px;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			font-size:14px;
+		}
+		.engine-action .engine-btn-bg {
+			height: 32px;
+			cursor:pointer;
+		}
+		.engine-action .engine-btn-bg, .mod-action .btn-confirm, .cont-header, .side-engine .engine-btn, .recharge-btn, .forum-btn, .sm-custom .btn-site-confirm, .weather-info-set .btn-confirm {
+			background: #0096dd;
+		}
+		.engine-action p {
+			float: left;
+		}
+		.engine-action .engine-btn {
+			width:54px;
+			height:32px;
+			color:#fff;
+			border:none;
+			cursor:pointer;
+		}
+		.engine-wrapper .engine-ad {
+			padding:0px;
+			margin:30px 0px 0px 10px;
+			height:30px;
+			width:186px;
+			overflow:hidden;
+			white-space: nowrap;
+		}
+		.engine-wrapper .engine-ad a {
+			color: #777;
+			display: block;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			font-size:16px;
+			float:left;
+			margin-left:5px  ;
+		}
+		/*firefox search*/
+		/*weather loading*/
+		#weather_loading {
+			line-height:52px;text-align: center;height: 52px; 
+		}
+		#weather_loading img {
+			margin-bottom:-12px;
+		}
+		/**/
+		/**back2top*/
+		.back2top  a{
+			position:fixed;
+			_position:absolute;
+			z-index:300;
+			background:url("http://jc.dnspai.com/img/top.png") no-repeat 0 -50px;
+			right:5%;
+			bottom:50px;
+			width:50px;
+			height:50px;
+			cursor:pointer;
+			overflow:hidden;
+		}
+		
+		.hide {
+			display:none;
+		}
+		/***/
+	</style>
+</head>
+
+<body>
+	<div id="doc-view" class="theme-doc">
+		<div id="doc-hd">
+		
+			<div id="topbar" class="theme-topbar-anchor-parent" style="height:8px;">
+				<div class="topbar-bd container gclearfix">
+					<!--
+					<div id="top-menu" class="theme-text">
+						<a>3G笑话</a>
+						|
+						<a>AV资料大全</a>
+					</div>
+					<div id="top-toolbar">
+						<a id="toolbar-feedback" href="http://feedback.hao.360.cn/" title="建议反馈"><span class="icon-feedback theme-icon"></span>反馈</a>
+					</div> -->
+				</div>
+			</div>
+			<!-- -->
+			<div id="doc-bd">
+				<div id="doc-main" class="container">
+					<div id="doc-main-hd" class="hd">
+						<div id="header-frame" class="theme-header-anchor-parent theme-header">
+							<div class="item-logo">
+								<div id="imgLogo" class="theme-header theme-border">
+									<span>您访问的域名不存在！</span>
+								</div>									
+								<div id="tips"></div>
+							</div>
+							<div class="item-weather theme-header theme-border">
+								<div id="weather_loading">
+									<img src="http://jc.dnspai.com/img/loading.gif" />
+									<span>&nbsp;&nbsp;正在努力加载......</span>
+								</div>
+								<div id="weather" style="display:none">
+									<div class="inner" id="weather-inner">
+										<div class="city">
+											<h3 class="name theme-text"></h3>
+										</div>
+										<a class="today theme-border gclearfix">
+											<span class="pic tp"></span>
+											<span class="desc"></span>
+											<span class="temperature" lang="en-US"></span>
+										</a>
+										<a class="tomorrow theme-border gclearfix">
+											<span class="pic tmp"></span>
+											<span class="desc"></span>
+											<span class="temperature" lang="en-US"></span>
+										</a>
+										<style>
+											#weather .future {
+												margin-top: 22px;
+												margin-left: 5px;
+												width: 10px;
+												height: 9px;
+											}
+											#weather .today, #weather .tomorrow, #weather .future {
+												float: left;
+												display: inline;
+											}
+											.icon-future {
+												font-size: 12px;
+											}
+											.icon-joke, .icon-future {
+												vertical-align: top;
+											}
+										</style>
+										<a class="future" title="点击查看7日天气" target="weather101020100" href="http://www.weather.com.cn/weather/101020100.shtml#7d">
+											<span class="icon-future theme-icon">>></span>
+										</a>
+										<div class="weather-extend">
+											<ul class="extend-list" style="top: -22px;">
+												<li class="selected">
+													<a class="wind"></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item-last">
+								<div id="joke">
+									<a id="ajoke" href="http://www.3gxiaohua.com/index.php?start=10" class="text" target="xiaohua">笑话：好销魂的兔子</a>
+								</div>
+								<div id="email">
+									<a href="http://weibo.com/z/landingpage/joke.html">新浪微博笑话大全</a>
+								</div>
+							</div>
+						</div>
+						<div class="cont-engine" id="engine-top">
+							<div class="engine-wrapper">
+								<div class="engine-logos">
+									<p class="engine-logo-show">
+										<a class="engine-logo baidu" id="baidu-logo" title="百度" ></a>
+										<a class="engine-logo google hide" id="google-logo" title="google" ></a>
+										<a class="engine-logo so hide" id="so-logo" title="360" ></a>
+										<a class="engine-logo bing hide" id="bing-logo" title="bing" ></a>
+									</p>
+								</div>
+								<div class="engine-main">
+									<p class="engine-menu" id="search-nav">
+										
+										<a id="baidu" class="on" url="http://www.so.com/s?src=zzy&q=">网页</a>
+                                                                                <a id="so" url="http://www.so.com/s?src=zzy&q=">360</a>
+										<a id="google" url="http://www.google.com.hk/search?q=">谷歌</a>
+										<a id="bing" url="http://cn.bing.com/search?q=">必应</a>
+									</p>
+									<div class="engine-action">
+										<div class="engine-key-wrapper">
+											<input class="engine-key" type="text" id="search-kw" autocomplete="off" />
+										</div>
+										<p class="engine-btn-bg">
+											<img src="http://jc.dnspai.com/img/search_btn.png" onclick="searchClick();"/>
+										</p>
+									</div>
+								</div>
+								<div class="engine-ad marquee-show" id="engine-ad-marquee">
+									<a target="_blank" href="http://www.3gxiaohua.com/index.php">3G笑话网</a>
+									
+									<!--<a>时尚羽绒服</a> -->
+								</div>
+							</div>
+						</div>
+							<!--横幅广告-->
+							<div style="height:90px;line-height:90px;margin:auto;text-align:center;clear:both;">
+								<script type="text/javascript">
+									var allyes_page_url="jc.dnspai.com",  allyes_siteid='117', allyes_output=1, allyes_channedid='678',allyes_ad_width='970',allyes_ad_height='90',allyes_adspaceid='171-11', allyes_host_addr='mmae.allyes.com';
+								</script>
+								<script type="text/javascript" src="http://1.allyes.com.cn/mediamax/MediaMax.js"></script>
+							</div>
+					</div>
+					<div id="doc-main-bd" class="bd">
+						<div class="f-r" bone="left-var">
+							<div id="honghong" class="gmodule g-box">
+								<div class="side-notice">
+									<span>推荐：</span>
+									<a target="_blank" href="http://idigger.allyes.com/main/c?db=idigger&amp;bid=64654,31306,1&amp;cid=29036,23272,1510&amp;sid=63963&amp;show=ignore&amp;url=https://open2.baidu.com/index/tool/tooldetail.do?from=index&amp;client_id=WtbPrLKGVOv4A5R765PxPRUb&amp;stageid=&amp;userid=&amp;from=index">免费百度推广</a>
+								</div>
+								<div class="side-tool">
+								  <ul>
+									<li class="tool-online">
+									  <b>
+									  <a class="first" href="http://www.huohu123.com/channel/channel_99.html" title="工具大全">工具大全</a> 
+									  <a href="http://translate.google.com.hk/" title="翻译">翻译</a></b>
+									  <a class="last" href="http://www.cnpm25.cn/" title="PM2.5查询">PM2.5查询</a>
+									</li>
+									<li class="tool-game">
+									  <b>
+										<a class="first" href="http://www.huohu123.com/channel/game.html" title="游戏">游戏</a>
+										<a href="http://www.huohu123.com/channel/channel_26.html" title="动漫">动漫</a>
+									  </b>
+									  <a class="last" href="http://youxi.baidu.com/yxpm/pm.jsp" title="热血战纪">热血战纪</a>
+									</li>
+									<li class="tool-shopping">
+									  <b>
+										<a class="first" href="http://www.huohu123.com/channel/shopping.html" title="品牌折扣">品牌折扣</a>
+										<a href="http://tg.huohu123.com/" title="团购">团购</a>
+									  </b>
+									  <a class="last" href="http://www.zhe800.com/" title="9块9包邮">9块9包邮</a>
+									</li>
+									<li class="tool-ticket">
+									  <b>
+										<a class="first" href="http://jipiao.kuxun.cn/" title="机票">机票</a>
+										<a href="http://www.tieyou.com/#utm_source=mozilla" title="火车票">火车票</a>
+									  </b>
+									  <a class="last" href="http://www.huohu123.com/channel/travel.html" title="特价旅游线路">特价旅游线路</a>
+									</li>
+									<li class="tool-media">
+									  <b>
+										<a class="first" href="http://www.huohu123.com/channel/channel_35.html" title="音乐">音乐</a>
+										<a href="http://www.huohu123.com/channel/channel_33.html" title="视频">视频</a>
+									  </b>
+									  <a class="last" href="http://www.soku.com/detail/show/XMTEyMzIyNA==" title="爸爸去哪儿">爸爸去哪儿</a>
+									</li>
+									<li class="tool-fun">
+									  <b>
+										<a class="first" href="http://xiaoshuo.360.cn/" title="小说">小说</a>
+										<a href="http://count.chanet.com.cn/click.cgi" title="图书">图书</a>
+									  </b>
+									  <a class="last" href="http://tu.hao.360.cn/lvxing" title="美图">美图</a>
+									</li>
+								  </ul>
+								</div>
+								<div style="padding:2px 0px;width:250px;height:250px;">
+									<!-- 新页中右侧广告 开始 -->
+									<script>
+										var jy_source_page_url = 'http://www.dnspai.com' ;
+										var _kexchange = _kexchange || [];
+										_dmid='OTA2NEVCNjI0OEE5MUEz';
+										_kexchange.push(['_setAccount', _dmid]);
+										 document.write('<script type="text/javascript" charset="utf-8" src="' 
+											+ ('https:' == document.location.protocol ? 'https://' : 'http://') 
+											+ 'cmarket.kejet.net/exchange2.js?a='+_dmid + '"><\/scr'+'ipt>');
+											_kenid = 'NDcyNDc2MkY3MjczQzY2_'+Math.random();
+											_kexchange.push(['_addSlot',_kenid,'250','250','2','8']);
+									</script>
+									<!-- 新页中右侧广告 结束 -->
+								</div>
+								<div class="side-app side-app-game">
+									<div class="tab-menu app-menu">
+										<ul>
+											<li id="appm-novel" for="appd-novel" class="on"><span>小说</span></li>
+											<li id="appm-game" for="appd-game"><span>游戏</span></li>
+										</ul>
+									</div>
+									<div class="app-detail">
+										<div class="app-mod" style="display:block;" id="appd-novel">
+										  <ul>
+											<li>
+											  <a class="app-img" href="http://www.qidian.com/Book/2502372.aspx" title="莽 荒 纪">
+												<img src="http://img.firefoxchina.cn/2013/10/20131015164913_mang_s.png" />
+												<p>
+												  <span>莽 荒 纪</span>
+												</p>
+											  </a>
+											</li>
+											<li class="even">
+											  <a class="app-img" href="http://www.qidian.com/Book/2750457.aspx" title="大 主 宰">
+												<img src="http://img.firefoxchina.cn/2013/10/20131015164942_zhuzai_s.png" />
+												<p>
+												  <span>大 主 宰</span>
+												</p>
+											  </a>
+											</li>
+											<li>
+											  <a class="app-link" href="http://www.qidian.com/Book/2952453.aspx" title="完美世界">完美世界</a>
+											</li>
+											<li class="even">
+											  <a class="app-link" href="http://www.qidian.com/Book/2517792.aspx" title="绝世唐门">绝世唐门</a>
+											</li>
+											<li>
+											  <a class="app-link" href="http://book.zongheng.com/book/280744.html" title="星河大帝">星河大帝</a>
+											</li>
+											<li class="even">
+											  <a class="app-link" href="http://book.zongheng.com/book/296950.html" title="冰火破坏神">冰火破坏神</a>
+											</li>
+											<li>
+											  <a class="app-link" href="http://book.zongheng.com/book/251393.html" title="不败战神">不败战神</a>
+											</li>
+											<li class="even">
+											  <a class="app-link" href="http://book.zongheng.com/book/189169.html" title="雪中悍刀行">雪中悍刀行</a>
+											</li>
+											<li>
+											  <a class="app-link" href="http://www.17k.com/book/117302.html" title="罪恶之城">罪恶之城</a>
+											</li>
+											<li class="even">
+											  <a class="app-link" href="http://www.17k.com/book/489705.html" title="那些年混过的兄弟">那些年混过的兄弟</a>
+											</li>
+										  </ul>
+										</div>
+										<div class="app-mod" id="appd-game" style="display:none">
+										  <ul>
+											<li>
+											  <a class="app-img" href="http://p.ecwan77.com/s/1/202/15482.html?uid=3604002" title="热血战纪">
+												<img src="http://img.firefoxchina.cn/2013/10/20131017164035_blood_s.png" />
+												<p>
+												  <span>热血战纪</span>
+												</p>
+											  </a>
+											</li>
+											<li class="even">
+											  <a class="app-img" href="http://www.xd.com/abtesting/landing_page/js?source=js_za_360_tjtp&utm_source=js_za_360_titp" title="将神">
+												<img width="108" height="72" src="http://p1.qhimg.com/t011fe4c5e9f2222b37.jpg">
+												<p>
+												  <span>将神</span>
+												</p>
+											  </a>
+											</li>
+											<li>
+											  <a class="app-link" href="http://xiaoyouxi.360.cn/tag?tag=187">性感美女</a>
+											</li>
+											<li class="even">
+											  <a class="app-link" href="http://126.am/i7yxr1" title="大闹天宫OL">大闹天宫OL</a>
+											</li>
+											<li>
+											  <a class="app-link" href="http://p.ecwan77.com/s/1/202/15892.html?uid=3604003" >御天</a>
+											</li>
+											<li class="even">
+											  <a class="app-link" href="http://mx.jzyx.com/home/ad?ad_id=123263">魔侠传</a>
+											</li>
+											<li>
+											  <a class="app-link" href="http://rd.wan.360.cn/reg?src=DH-yxhb1-tcol">touch炫舞</a>
+											</li>
+											<li class="even">
+											  <a class="app-link" href="http://rd.wan.360.cn/reg?src=DH-yxhb1-qmr">秦美人</a>
+											</li>
+											<li>
+											  <a class="app-link" href="http://rd.wan.360.cn/reg?src=DH-yxhb1-gjqx">古剑奇侠</a>
+											</li>
+											<li class="even">
+											  <a class="app-link" href="http://g.360.cn/index.html"
+											  title="更多游戏&gt;&gt;">更多游戏&gt;&gt;</a>
+											</li>
+										  </ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<a target="_blank" href="http://126.am/i7yxr1">
+								<img src="http://dl.kdbbx.com/images/danaotiangong.jpg" style="width:250px;" />
+							</a>
+						</div>
+						<div class="f-l" bone="right-var">
+							<div id="hot-site" class="gmodule g-box">
+								<div id="mysite-section">
+									<div id="famous-section">
+										<ul class="list first gclearfix">
+											<li><a href="http://www.baidu.com" target="_blank">百度</a><span class="split">•</span><a href="http://tieba.baidu.com/" target="_blank">贴吧</a></li>
+											<li><a href=" http://www.so.com/" target="_blank">360搜索</a><span class="split">•</span><a href="http://www.google.com.hk/webhp" target="_blank">谷歌</a></li>
+											<li><a href="http://www.sina.com.cn" target="_blank">新浪</a><span class="split">•</span><a href="http://weibo.com/" target="_blank">微博</a></li>
+											<li><a href="http://www.sohu.com" target="_blank">搜狐</a><span class="split">•</span><a href="http://tv.sohu.com/" target="_blank">视频</a></li>
+											<li><a href="http://www.163.com" target="_blank">网易</a><span class="split">•</span><a href="http://email.163.com" target="_blank">邮箱</a></li>
+											<li><a href="http://www.ifeng.com/" target="_blank">凤凰</a><span class="split">•</span><a href="http://news.ifeng.com/mil/" target="_blank">军事</a></li>
+											<li><a class="green" href="http://wan.360.cn/" target="_blank">360游戏</a></li>
+											<li><a href="http://www.taobao.com/" target="_blank">淘 宝 网</a></li>       	
+											<li><a href="http://s.click.taobao.com/t?e=zGU34CA7K%2BPkqB05%2Bm7rfGGjlY60oHcc7bkKOQYmIx%2FV9tC9e4o%2FtvXRCgK5QlhN5ggbK3ta7PrDY8PRSsDuQ%2FYVBPp0xS8Nkjl3DesNKuGekARqVw%3D%3D" target="_blank">商城</a><span class="split">•</span><a href="http://s.click.taobao.com/t?e=zGU34CA7K%2BPkqB05%2Bm7rfGKas1PIKp0U37pZuBotzOg7OjeU9mIWS5%2B5UROBz6sq4fiHePnGhf6UrWuOtfD2G6QGcAHIXpjhEtESpuqsRo0a&amp;pid=mm_45752926_0_0" target="_blank">团购</a></li>
+											<li><a href="http://s.click.taobao.com/t?e=zGU34CA7K%2BPkqB05%2Bm7rfGGjlY60oHcc7bkKOQYnIZl%2F13lMuG8%2BdzzS%2BnhtrdwbodXYZyOJKAMxxW%2BoMIn73uO8pHoPV3R6lY6Gz%2FKsQXFS%2BUpLIw%3D%3D" target="_blank">天 猫</a></li>
+											<li><a href="http://www.360.cn/" target="_blank">360</a><span class="split">•</span><a href="http://shouji.360.cn/index.html" target="_blank">手机卫士</a></li>
+											<li><a href="http://www.renren.com" target="_blank">人人</a><span class="split">•</span><a href="http://qzone.qq.com/" target="_blank">QQ空间</a></li>
+											<li>
+												<a href="http://ai.taobao.com/?pid=mm_45752926_4224690_14288584&amp;eventid=101329" target="_blank">淘宝特卖</a>
+												<div class="g-toggle"></div>
+												<div class="group-list">
+													<div class="inner">
+														<a href="http://www.taobao.com/go/chn/tbk_channel/lady.php" target="_blank">女   装</a>
+														<a href="http://www.taobao.com/go/chn/tbk_channel/man.php" target="_blank">男   装</a>
+														<a href="http://www.taobao.com/go/chn/tbk_channel/jewelry.php" target="_blank">鞋   包</a>
+														<a href="http://s.click.taobao.com/t" target="_blank">聚划算</a>
+													</div>
+												</div>
+											</li>
+											<li><a href="http://v.360.cn/" class="favicon" target="_blank">360影视</a></li>
+											  <li><a href="http://www.tudou.com/" target="_blank">土 豆 网</a></li>
+											  <li><a href="http://cp.360.cn/" target="_blank">360彩票</a></li>
+											  <li><a href="http://www.eastmoney.com/" target="_blank">东方财富</a></li>
+											  <li><a href="http://www.jd.com/" class="favicon" target="_blank">京东商城</a></li>
+											  <li><a href="http://www.people.com.cn/" target="_blank">人民</a><span class="split">•</span><a href="http://www.xinhuanet.com/" target="_blank">新华</a></li>
+											  <li><a href="http://www.cntv.cn/index.shtml" target="_blank">CNTV</a><span class="split">•</span><a href="http://v.360.cn/live" target="_blank">直播</a></li>
+											  <li><a href="http://www.pconline.com.cn/" target="_blank">太平洋电脑</a></li>
+											  <li><a href="http://www.jiayuan.com/st/" target="_blank">世纪佳缘</a></li>
+											  <li><a href="http://u.ctrip.com/union/CtripRedirect.aspx?TypeID=2&amp;Allianceid=12422&amp;sid=349110&amp;OUID=&amp;jumpUrl=http://www.ctrip.com" target="_blank">携 程 网</a></li>
+											  <li><a href="http://www.zol.com.cn/" target="_blank">中关村在线</a></li>
+										  </ul>
+										<ul class="list gclearfix">
+										  <li><a href="http://www.autohome.com.cn/" target="_blank">汽车之家</a></li>
+										  <li><a href="http://www.bitauto.com/" target="_blank">易 车 网</a></li>
+										  <li><a href="http://www.pcauto.com.cn/" target="_blank">太平洋汽车</a></li>
+										  <li><a href="http://www.lefeng.com/" class="favicon" target="_blank">乐 蜂 网</a></li>
+										  <li><a href="http://www.baihe.com/" target="_blank">百 合 网</a></li>
+										  <li><a href="http://www.suning.com/" target="_blank">苏宁易购</a></li>
+										  <li><a href="http://www.nuomi.com/" target="_blank">糯 米 网</a></li>
+										  <li><a href="http://www.58.com/" target="_blank">58 同 城</a></li>
+										  <li><a href="http://www.ganji.com/" target="_blank">赶 集 网</a></li>
+										  <li><a href="http://union.dangdang.com/transfer.php?from=P-319537&amp;ad_type=10&amp;sys_id=1&amp;backurl=http%3A%2F%2Fwww.dangdang.com" target="_blank">当 当 网</a></li>
+										  <li><a href="http://www.tuniu.com/ch/honeymoon/?&amp;p=14559&amp;cmpid=union_14559" target="_blank">途牛旅游网</a></li>
+										  <li><a href="http://www.yhd.com/?tracker_u=108361120" target="_blank">1 号 店</a></li>
+										  <li><a href="http://www.vancl.com/?source=pusunshine&amp;sourcesuninfo=ad-0-4-0-0-1" target="_blank">凡客诚品</a></li>
+										  <li><a href="http://an.moonbasa.com/transfer.aspx" target="_blank">梦 芭 莎</a></li>
+										  <li><a href="http://www.amazon.cn/?_encoding=UTF8&amp;camp=536&amp;creative=3132&amp;linkCode=ur2&amp;tag=nisunshine-23" target="_blank">亚 马 逊</a></li>
+										  <li><a href="http://www.elong.com/" target="_blank">艺 龙 网</a></li>
+										  <li><a href="http://www.qunar.com" target="_blank">去哪儿网</a></li>
+										  <li><a href="http://cnt.zhaopin.com/Market/whole_counter.jsp" target="_blank">智联招聘</a></li>
+										  <li><a href="http://u.ctrip.com/union/CtripRedirect.aspx?TypeID=2&amp;Allianceid=12422&amp;sid=349110&amp;OUID=&amp;jumpUrl=http://www.ctrip.com" target="_blank">携 程</a></li>
+										  <li><a href="http://www.gome.com.cn" target="_blank">国美在线</a></li>
+										  <li><a href="http://click.union.vip.com/redirect.php?url=eyJ1Y29kZSI6ImZlNG9jdWZxIiwic2NoZW1lY29kZSI6ImY1YTA1ZDY2In0=" target="_blank">唯 品 会</a></li>
+										  <li><a href="http://www.jumei.com" target="_blank">聚美优品</a></li>
+										  <li><a href="http://www.m18.com" target="_blank">M18麦考林</a></li>
+										  <li><a href="http://www.mogujie.com/" target="_blank">蘑 菇 街</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="f-l" bone="right-var">
+							<div id="mbar" class="gmodule">
+								<div class="mbar-bd" id="mbarbd">									
+									<img src="http://jc.dnspai.com/img/loading.gif" style="height:22px;float: left;margin-left: 300px; margin-top: 3px;">
+									<span style="float: left;">&nbsp;&nbsp;正在努力加载......</span>
+								</div>
+							</div>
+							<style type="text/css">
+									#cool-site {
+										float: right;
+										overflow: hidden;
+										margin-top: 0;
+										position: relative;
+									}
+									#cool-site .g-box {
+										border-width: 1px 1px 0;
+									}
+									#cool-site .panel {
+										overflow: hidden;
+										margin-top: -1px;
+										padding-bottom:3px;
+										*padding-bottom:20px;
+										zoom: 1;
+									}
+									#cool-site .nav {
+										overflow: hidden;
+										margin: 0 0 2px -1px;
+										height: 30px;
+										border-top: 1px solid #e4e4e4;
+										border-bottom: 1px solid #e4e4e4;
+										background-color: #fafafa;
+									}
+									#cool-site .nav a, #cool-site .item .subtitle a {
+										color: #07519a;
+									}
+									#cool-site .nav a {
+										float: left;
+										margin-top: 7px;
+										padding: 0 11px 0 12px;
+										border-left: 1px solid #d8d8d8;
+										line-height: 1.2;
+									}
+									#cool-site .item {
+										position: relative;
+										overflow: hidden;
+										padding: 0 8px;
+										height: 30px;
+										zoom: 1;
+									}
+									#cool-site .item .subtitle {
+										overflow: hidden;
+										z-index: 9;
+										position: relative;
+										float: left;
+										_margin-right: -3px;
+										padding-left: 4px;
+										width: 52px;
+										line-height: 29px;
+										font-weight: normal;
+									}
+									#cool-site .nav a:hover, #cool-site .item .subtitle a:hover, #cool-site .item .more:hover {
+										color: #e60012;
+									}
+									#cool-site .item .list {
+										margin-right:0;
+									}
+									#cool-site .item .list li {
+										padding-right:8px;
+										width: 14%;
+									}
+									#cool-site .item .more {
+										position: absolute;
+										top: 0;
+										right: 12px;
+										width: 46px;
+										line-height: 29px;
+										font-size: 12px;
+										color: #919191;
+									}
+							</style>
+							<div id="cool-site" class="gmodule g-box">
+								<div class="cool-site-bd g-box-bd">
+									<div class="panel">
+										<div class="nav">
+											<a href="http://g.360.cn">游戏</a><a href="http://v.360.cn/dianying/index.html">电影</a><a href="http://v.360.cn/dianshi/index.html">电视剧</a><a href="http://xiaoshuo.360.cn/">小说</a><a href="http://music.so.com">音乐</a><a href="http://mall.360.cn/">购物</a><a href="http://tuan.360.cn/">美食团</a><a href="http://tuan.360.cn/">逛女装</a><a href="http://www.taobao.com/go/act/taoke/huangguan.php">淘宝皇冠店</a>
+										</div>
+										<div class="item ">
+											<h3 class="subtitle"><a href="http://g.360.cn">页游</a></h3>
+											<ul class="list">
+												<li><a href="http://126.am/i7yxr1">大闹天宫</a></li>
+												<li><a href="http://codes.dian5000.com/htmlcode/39795.html">新百炼成仙</a></li>
+												<li><a href="http://sctx.wan.360.cn/?src=DH-yx2tz-sctx">神创天下</a></li>
+												<li><a href="http://rd.wan.360.cn/reg?src=dhn-kz-fhl">凤凰令</a></li>
+												<li><a href="http://rd.wan.360.cn/reg?src=DH-yx2tz-9lc">九龙朝</a></li>
+												<li><a href="http://rd.wan.360.cn/reg?src=dhn-kz-xxjflash">新仙剑</a></li>
+											</ul>
+										</div>
+										<div class="item ">
+											<h3 class="subtitle"><a href="http://v.360.cn/site.html">视频</a></h3>
+											<ul class="list">
+											  <li><a href="http://www.youku.com/">优 酷</a></li>
+											  <li><a href="http://www.tudou.com/">土豆网</a></li>
+											  <li><a href="http://tv.sohu.com/">搜狐视频</a></li>
+											  <li><a href="http://www.letv.com/">乐视网高清</a></li>
+											  <li><a href="http://www.6.cn/">六间房秀场</a></li>
+											  <li><a href="http://v.360.cn/yingyuan/index.html">最新影讯</a></li>
+											</ul>
+										</div>
+										<div class="item hover" data-item="novel">
+											<h3 class="subtitle"><a href="http://xiaoshuo.360.cn/">小说</a></h3>
+											<ul class="list">
+												<li><a href="http://www.qidian.com">起点中文网</a></li>
+												<li><a href="http://www.zongheng.com/">纵横中文网</a></li>
+												<li><a href="http://www.readnovel.com/">小说阅读网</a></li>
+												<li><a href="http://www.17k.com/">17K小说网</a></li>
+												<li><a href="http://www.hongxiu.com">红袖添香</a></li>
+												<li><a href="http://www.xs8.cn">言情小说吧</a></li>
+											</ul>
+										</div>
+										<div class="item ">
+											<h3 class="subtitle"><a href="http://music.so.com">音乐</a></h3>
+											<ul class="list">
+												<li><a href="http://www.kugou.com/1145">酷狗音乐</a></li>
+												<li><a href="http://www.1ting.com/">一听音乐网</a></li>
+												<li><a href="http://www.9ku.com/">九酷音乐网</a></li>
+												<li><a href="http://v.6.cn/">音乐主播秀</a></li>
+												<li><a href="http://fanxing.kugou.com/ext/union/">美女音乐秀</a></li>
+												<li><a href="http://www.666ccc.com">今生缘音乐</a></li>
+											</ul>
+										</div>
+										<div class="item ">
+											<h3 class="subtitle"><a href="http://g.360.cn">游戏</a></h3>
+											<ul class="list">
+												<li><a href="http://www.4399.com/">4399小游戏</a></li>
+												<li><a href="http://www.7k7k.com/">7K7K小游戏</a></li>
+												<li><a href="http://www.2144.cn">2144小游戏</a></li>
+												<li><a href="http://t.173.com/event/201311/arrival1111/index.htm">Touch炫舞</a></li>
+												<li><a href="http://gad.netease.com/gad/access">大唐无双2</a></li>
+												<li><a href="http://365.uc108.com/game/dl/ddz.htm">斗地主</a></li>
+											</ul>
+										</div>
+										<div class="item">
+											<h3 class="subtitle"><a href="http://hao.360.cn/junshiguofang.html">军事</a></h3>
+											<ul class="list">
+												<li><a href="http://military.china.com/zh_cn/">中华网军事</a></li>
+												<li><a href="http://www.tiexue.net/">铁血军事</a></li>
+												<li><a href="http://www.miercn.com/">米尔军情网</a></li>
+												<li><a href="http://www.xinjunshi.com">环球新军事</a></li>
+												<li><a href="http://www.chinaiiss.com/">战略军事网</a></li>
+												<li><a href="http://www.qianyan001.com/">军事前沿</a></li>
+											</ul>
+										</div>
+										<div class="item ">
+											<h3 class="subtitle"><a href="http://hao.360.cn/tiyuyundong.html">体育</a></h3>
+											<ul class="list">
+												<li><a href="http://sports.sina.com.cn/">新浪体育</a></li>
+												<li><a href="http://sports.sohu.com/">搜狐体育</a></li>
+												<li><a href="http://sports.163.com/">网易体育</a></li>
+												<li><a href="http://www.hupu.com/">虎扑体育</a></li>
+												<li><a href="http://sports.letv.com/">乐视体育</a></li>
+												<li><a href="http://v.360.cn/live/tiyu_yugao/">体育直播</a></li>
+											</ul>
+										</div>
+										<div class="nav">
+											<a href="http://sh.qihoo.com/">新闻</a><a href="http://hao.360.cn/junshiguofang.html">军事</a><a href="http://hao.360.cn/tiyuyundong.html">体育</a><a href=" http://hao.360.cn/nba.html">NBA</a><a href="http://hao.360.cn/gupiaojijin.html">财经</a><a href="http://g.360.cn">网游</a><a href="http://xiaoyouxi.360.cn/">小游戏</a><a href="http://qipai.360.cn/?src=DH-mid-qipai">棋牌</a><a href="http://cp.360.cn/ssq/?a=dhgg">双色球</a><a href=" http://edu.360.cn/yingyu?tn=aside">英语</a><a href="http://class.edu.360.cn/?from=hao360">考试</a><a href="http://class.edu.360.cn/gwy">公务员</a>
+										</div>
+										<div class="item ">
+											<h3 class="subtitle"><a href="http://mall.360.cn/">购物</a></h3>
+											<ul class="list">
+												<li><a href="http://jd.com">京东商城</a></li>
+												<li><a href="http://suning.com">苏宁易购</a></li>
+												<li><a href="http://www.amazon.cn/?_encoding=UTF8&camp=536&creative=3132&linkCode=ur2&tag=nisunshine-23">亚马逊</a></li>
+												<li><a href="http://union.dangdang.com/transfer.php?from=P-319537&ad_type=10&sys_id=1&backurl=http%3A%2F%2Fwww.dangdang.com">当当网商城</a></li>
+												<li><a class="orange" href="http://www.lefeng.com">乐蜂化妆品</a></li>
+												<li><a href="http://s.click.taobao.com/t?e=zGU34CA7K%2BPkqB05%2Bm7rfGGjlY60oHcc7bkKOQYnIZl%2F13lMuG8%2BdzzS%2BnhtrdwbodXYZyOJKAMxxW%2BoMIn73uO8pHoPV3R6lY6Gz%2FKsQXFS%2BUpLIw%3D%3D">天 猫</a></li>
+											</ul>
+										</div>
+										<div class="item ">
+											<h3 class="subtitle"><a href="http://hao.360.cn/mianfeiziyuan.html">邮箱</a></h3>
+											<ul class="list">
+												<li><a href="http://mail.163.com/">163邮箱</a></li>
+												<li><a href="http://www.126.com/">126邮箱</a></li>
+												<li><a href="https://passport.alipay.com/login/login.htm">阿里云</a></li>
+												<li><a href="http://mail.qq.com/">QQ邮箱</a></li>
+												<li><a href="http://mail.sina.com.cn/">新浪邮箱</a></li>
+												<li><a href="http://www.hotmail.com/">Hotmail</a></li>
+											</ul>
+										</div>
+										<div class="item ">
+											<h3 class="subtitle"><a href="http://sh.qihoo.com/">新闻</a></h3>
+											<ul class="list">
+												<li><a href="http://news.sina.com.cn/">新浪新闻</a></li>
+												<li><a href="http://news.163.com/">网易新闻</a></li>
+												<li><a href="http://news.sohu.com/">搜狐新闻</a></li>
+												<li><a href="http://news.ifeng.com/">凤凰新闻</a></li>
+												<li><a href="http://www.huanqiu.com/">环球</a><span class="split">•</span><a href="http://www.china.com.cn/">中国网</a></li>
+												<li><a href="http://www.xinhuanet.com/">新华网</a></li>
+											</ul>
+										</div>
+										<div class="item ">
+											<h3 class="subtitle"><a href="http://hao.360.cn/gupiaojijin.html">财经</a></h3>
+											<ul class="list">
+												<li><a href="http://www.eastmoney.com/">东方财富网</a></li>
+												<li><a href="http://www.hexun.com/">和讯财经</a></li>
+												<li><a href="http://finance.sina.com.cn/">新浪财经</a></li>
+												<li><a href="http://business.sohu.com/">搜狐财经</a></li>
+												<li><a href="http://cn.wsj.com/">华尔街日报</a></li>
+												<li><a href="http://www.stockstar.com/">证券之星</a></li>
+											</ul>
+										</div>
+										<div class="item ">
+											<h3 class="subtitle"><a>银行</a></h3>
+											<ul class="list">
+												<li><a href="http://www.icbc.com.cn/">工商银行</a></li>
+												<li><a href="http://www.ccb.com/">建设银行</a></li>
+												<li><a href="http://www.boc.cn/">中国银行</a></li>
+												<li><a href="http://www.cmbchina.com/">招商银行</a></li>
+												<li><a href="http://www.abchina.com/">农业银行</a></li>
+												<li><a href="http://www.bankcomm.com/">交通银行</a></li>
+											</ul>
+										</div>
+										<div class="item ">
+											<h3 class="subtitle"><a href="http://hao.360.cn/jiaoyouwz.html">交友</a></h3>
+											<ul class="list">
+												<li><a href="http://www.jiayuan.com">世纪佳缘网</a></li>
+												<li><a href="http://www.zhenai.com">珍爱婚恋网</a></li>
+												<li><a href="http://www.baihe.com">百合婚恋网</a></li>                  
+												<li><a href="http://www.youyuan.com">有缘交友网</a></li>
+												<li><a href="http://www.juedui100.com/">绝对100</a></li>
+												<li><a href="http://www.zhiji.com/">知己交友网</a></li>
+											</ul>
+										</div>
+										<div class="item ">
+											<h3 class="subtitle"><a href="http://hao.360.cn/shequluntan.html">社区</a></h3>
+											<ul class="list">
+											<li><a href="http://www.kaixin001.com/">开心网</a></li>
+											<li><a href="http://qzone.qq.com/">QQ空间</a></li>
+											<li><a href="http://www.tianya.cn/">天涯社区</a></li>
+											<li><a href="http://dzh.mop.com/">猫扑大杂烩</a></li>
+											<li><a href="http://weibo.com/?c=spr_web_360_hao360_weibo_t002">新浪微博</a></li>
+											<li><a href="http://www.douban.com/">豆 瓣</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- content -->
+					<iframe  frameborder="0" width="960" height="90" scrolling="no" src="http://gb.meikaw.com/ky_6.5/960x90.html"></iframe>
+					<!--footer-->
+					<div id="doc-main-ft" class="ft gclearfix">
+						<div id="category-service" class="gmodule g-box">
+							<div class="inner">
+								<div class="panel">
+									<h3 class="subtitle sh"><a href="http://hao.360.cn/shenghuowz.html#sites2">生活服务</a></h3>
+									<div class="item-word">
+										<h3 class="title"><a href="http://hao.360.cn/shenghuoxinxi.html">生活</a></h3>
+										<ul class="list">
+											<li><a href="http://hao.360.cn/fangchanjiaju.html">房产</a></li>
+											<li><a href="http://hao.360.cn/zhuangxiujiaju.html">家居</a></li>
+											<li><a href="http://caipu.hao.360.cn/">美食</a></li>
+											<li><a href="http://hao.360.cn/rencaizhaopin.html">招聘</a></li>
+										</ul>
+										<h3 class="title"><a href="http://mall.360.cn/?fname=hao_dibu_mall&amp;eee=hao_dibu_mall">购物</a></h3>
+										<ul class="list">
+											<li><a href="http://tuan.360.cn/?fname=hao_dibu_tuan&amp;eee=hao_dibu_tuan&amp;fsign=93014b6867">团购</a></li>
+											<li><a href="http://tuan.360.cn/?do=category&amp;clazz=40101&amp;fname=wg_hao_dibu_tuannvzhuang&amp;eee=wg_hao_dibu_tuannvzhuang">逛女装</a></li>
+											<li><a href="http://tejia.youhui.360.cn/?fname=hao_dibu_zhidemai&amp;eee=hao_dibu_zhidemai">特惠</a></li>
+											<li><a href="http://lux.360.cn/?fname=hao_dibu_lux&amp;eee=hao_dibu_lux">奢侈品</a></li>
+										</ul>
+										<h3 class="title"><a href="http://group.hao.360.cn/cars/index.php">汽车</a></h3>
+										<ul class="list">
+											<li><a href="http://group.hao.360.cn/cars/usedcar.php">二手车</a></li>
+											<li><a href="http://hao.360.cn/weizhang.html">违章</a></li>
+											<li><a href="http://hao.360.cn/ditu.html">地图</a></li>		
+											<li><a href="http://group.hao.360.cn/cars/chedai.php">车贷</a></li>			
+										</ul>
+										<h3 class="title"><a href="http://cp.360.cn/hall/hall.html?a=dh2">彩票</a></h3>
+										<ul class="list">
+											<li><a href="http://hao.360.cn/yinhang.html">银行</a></li>
+											<li><a href="http://hao.360.cn/touzilicai.html">基金</a></li>
+											<li><a href="http://hao.360.cn/gupiaojijin.html">股票</a></li>
+											<li><a href="http://hao.360.cn/baoxian.html">保险</a></li>
+										</ul>
+										<h3 class="title"><a href="http://hao.360.cn/nvxing.html">女性</a></h3>
+										<ul class="list">
+											<li><a href="http://hao.360.cn/meiti.html">美体</a></li>
+											<li><a href="http://hao.360.cn/jianfei.html">减肥</a></li>
+											<li><a href="http://hao.360.cn/meirong.html">美容</a></li>
+											<li><a href="http://hao.360.cn/muying.html">母婴</a></li>
+										</ul>
+										<h3 class="title"><a href="http://go.360.cn/">旅游</a></h3>
+										<ul class="list">
+											<li><a href="http://go.360.cn/hotel">酒店</a></li>
+											<li><a href="http://go.360.cn/flight">机票</a></li>
+											<li><a href="http://go.360.cn/train">火车票</a></li>
+											<li><a href="http://go.360.cn/holiday">线路</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="panel">
+									<h3 class="subtitle yl"><a href="http://hao.360.cn/shenghuowz.html#sites3">娱乐休闲</a></h3>
+									<div class="item-word">
+										<h3 class="title"><a href="http://sh.qihoo.com/">新闻</a></h3>
+										<ul class="list">
+											<li><a href="http://hao.360.cn/junshiguofang.html">军事</a></li>
+											<li><a href="http://hao.360.cn/shehuirenwen.html">历史</a></li>
+											<li><a href="http://hao.360.cn/yulebagua.html">八卦</a></li>
+											<li><a href="http://v.360.cn/yule/index.html">娱乐</a></li>
+										</ul>
+										<h3 class="title"><a href="http://v.360.cn/dianying/index.html">电影</a></h3>
+										<ul class="list">
+											<li><a href="http://v.360.cn/dianshi/index.html">电视剧</a></li>
+											<li><a href="http://v.360.cn/dongman/index.html">动漫</a></li>
+											<li><a href="http://v.360.cn/zongyi/index.html">综艺</a></li>
+											<li><a href="http://360kan.pptv.com/live/ahws/?site=pptv">直播</a></li>
+										</ul>
+										<h3 class="title"><a href="http://xiaoshuo.hao.360.cn/">小说</a></h3>
+										<ul class="list">
+											<li><a href="http://xiaoshuo.360.cn/list?type=21">漫画</a></li>
+											<li><a href="http://hao.360.cn/yinyuewz.html">音乐</a></li>
+											<li><a href="http://hao.360.cn/xingzuo.html">星座</a></li>
+											<li><a href="http://xiaohua.hao.360.cn/">搞笑</a></li>
+										</ul>
+										<h3 class="title"><a href="http://g.360.cn/">游戏</a></h3>
+										<ul class="list">
+											<li><a href="http://g.360.cn/game/pcg">单机</a></li>
+											<li><a href="http://qipai.360.cn/">棋牌</a></li>
+											<li><a href="http://xiaoyouxi.360.cn/">小游戏</a></li>
+											<li><a href="http://shouyou.360.cn/">手游</a></li>
+										</ul>
+										<h3 class="title"><a href="http://hao.360.cn/tiyuyundong.html">体育</a></h3>
+										<ul class="list">
+											<li><a href="http://hao.360.cn/nba.html">NBA</a></li>
+											<li><a href="http://hao.360.cn/zuqiushijie.html">足球</a></li>
+											<li><a href="http://hao.360.cn/xijia.html">西甲</a></li>
+											<li><a href="http://hao.360.cn/wangqiu.html">网球</a></li>
+										</ul>
+										<h3 class="title"><a href="http://ertong.hao.360.cn/index.html">儿童</a></h3>
+										<ul class="list">
+											<li><a href="http://hao.360.cn/jiaoyouwz.html">交友</a></li>
+											<li><a class="orange" href="http://hao.360.cn/yiliaojiankang.html">健康</a></li>
+											<li><a href="http://hao.360.cn/sheying.html">摄影</a></li>
+											<li><a href="http://hao.360.cn/shejishijue.html">设计</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="panel">
+									<h3 class="subtitle qt"><a href="http://hao.360.cn/shenghuowz.html">其他类别</a></h3>
+									<div class="item-word">
+										<h3 class="title"><a href="http://edu.360.cn/">教育</a></h3>
+										<ul class="list">
+											<li><a href="http://edu.360.cn/yingyu/">英语</a></li>
+											<li><a href="http://edu.360.cn/liuxue/">留学</a></li>
+											<li><a href="http://class.edu.360.cn/account">会计</a></li>
+											<li><a href="http://class.edu.360.cn/gwy">公务员</a></li>
+										</ul>
+										<h3 class="title"><a href="http://www.875.cn/index360.html">招商</a></h3>
+										<ul class="list">
+											<li><a href="http://hao.360.cn/hangyewangzhan.html">行业</a></li>
+											<li><a href="http://hao.360.cn/falvfagui.html">法律</a></li>
+											<li><a href="http://hao.360.cn/qiyehuangye.html">黄页</a></li>
+											<li><a href="http://so.360.cn/s?ie=utf-8&amp;src=hao_search&amp;q=%E5%A4%A9%E6%B0%94">天气</a></li>
+										</ul>
+										<h3 class="title"><a href="http://hao.360.cn/zhengfubumen.html">政府</a></h3>
+										<ul class="list">
+											<li><a href="http://hao.360.cn/baozhi.html">报纸</a></li>
+											<li><a href="http://edu.360.cn/daxue">大学</a></li>
+											<li><a href="http://hao.360.cn/yishuaihao.html">爱好</a></li>
+											<li><a href="http://hao.360.cn/mianfeiziyuan.html">邮箱</a></li>
+										</ul>
+										<h3 class="title"><a href="http://hao.360.cn/diannaowangluo.html">电脑</a></h3>
+										<ul class="list">
+											<li><a href="http://hao.360.cn/ruanjianxiazai.html">软件</a></li>
+											<li><a href="http://hao.360.cn/shoujitongxin.html">手机</a></li>
+											<li><a href="http://hao.360.cn/jiadianshuma.html">家电</a></li>
+											<li><a href="http://hao.360.cn/shequluntan.html">社区</a></li>
+										</ul>
+										<h3 class="title"><a href="http://hao.360.cn/meinvdaohang.html">美女</a></h3>
+										<ul class="list">
+											<li><a href="http://hao.360.cn/bizhitupian.html">图片</a></li>
+											<li><a href="http://hao.360.cn/hunqing.html">婚嫁</a></li>
+											<li><a href="http://hao.360.cn/fushi.html">服饰</a></li>
+											<li><a href="http://hao.360.cn/quyi.html">曲艺</a></li>
+										</ul>
+										<h3 class="title"><a href="http://hao.360.cn/qiqukuzhan.html">酷站</a></h3>
+										<ul class="list">
+											<li><a href="http://hao.360.cn/city/index.html">地方</a></li>
+											<li><a href="http://hao.360.cn/guowaiwangzhan.html">国外</a></li>
+											<li><a href="http://hao.360.cn/zongjiao.html">宗教</a></li>
+											<li><a href="http://hao.360.cn/chongwuhuaniao.html">宠物</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br/>
+		<br/>
+	</div>
+	<div id="back2top" class="back2top hide">
+		<a title="点击返回顶部"></a>
+	</div>
+	<script type="text/javascript" language="javascript">
+		function nx(pa){
+			var tdCountLine = 5;
+			if(pa.length > 0){
+				var htm = '您是不是找：';
+				var i=0;
+				
+				//如果只有关键词的时候
+				keywordLen = 3;
+				if(keywordLen > pa.length){
+					keywordLen = pa.length;
+				}
+				
+				for(;i < keywordLen;i++){
+					htm += "<a class='green' target='_blank' href =\"http://"+pa[i][1]+"\" onclick=\"click_log('"+pa[i][0]+"','"+pa[i][1]+"')\">"+pa[i][0]+"</a>";
+				}
+				
+				keyDiv = document.getElementById("tips");
+				keyDiv.innerHTML = htm;
+				
+				//clear
+				htm = "";
+				keywordLen = 12;
+				if(keywordLen+i > pa.length){
+					keywordLen = pa.length;
+				}
+
+				//add hrefs in mbar
+				for(;i < keywordLen;i++){
+					htm += "<a class='green' target='_blank' href =\"http://"+pa[i][1]+"\" onclick=\"click_log('"+pa[i][0]+"','"+pa[i][1]+"')\">"+pa[i][0]+"</a>";
+				}
+				
+				mbarBD = document.getElementById("mbarbd");
+				mbarBD.innerHTML = htm;
+			}
+	   }
+	</script>
+	<script type="text/javascript" language="javascript">
+		function click_log(keyword,dname){
+			nowTime = new Date();
+			keyword = encodeURIComponent(keyword);
+			dname   = encodeURIComponent(dname);
+			url = "/nx_log?key="+keyword+"&dn="+dname+"&q="+(nowTime.getTime()%10000);
+			var se1 = document.createElement('script');
+			se1.src = url;
+			se1.type = "text/javascript";
+			var head = document.getElementsByTagName('head')[0]
+			head.appendChild(se1);
+		}
+		function setTableUrls(data){
+			//no action
+		}
+	</script>
+	<script type="text/javascript" language="javascript">
+		domain = window.location.hostname;
+		nowTime = new Date();
+		url = "http://"+domain+"/nx?q="+(nowTime.getTime());
+		var se1 = document.createElement('script');
+		se1.src = url;
+		se1.type = "text/javascript";
+		var head = document.getElementsByTagName('head')[0]
+		head.appendChild(se1);
+	</script>
+	<script type="text/javascript" language="javascript">
+		//天气回调函数
+		function callback(data){
+			$("#weather  .inner .city  .name").text(data.area[0][0]);
+			
+			pic_num = data.weather[0].info.day[0];
+			today_bg = "background:url(http://p1.qhimg.com/d/_hao360/weather/"+pic_num+".png) no-repeat;_background-image:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://p1.qhimg.com/d/_hao360/weather/"+pic_num+".png',sizingMethod='image')";
+			$("#weather  .inner .today .pic").attr("style",today_bg);
+			
+			today_weather_info = "今  "+data.weather[0].info.day[1];
+			today_weather_tempature = " "+data.weather[0].info.day[2]+"~"+data.weather[0].info.night[2]+"°C";
+			$("#weather  .inner .today .desc").text(today_weather_info);
+			$("#weather  .inner .today .temperature").text(today_weather_tempature);
+			
+			today_weather_extend = data.weather[0].info.day[3]+"："+data.weather[0].info.day[4];
+			$("#weather  .inner .weather-extend .extend-list .selected").text(today_weather_extend);
+			
+			//tomorrow weather
+			pic_num = data.weather[1].info.day[0];
+			today_bg = "background:url(http://p1.qhimg.com/d/_hao360/weather/"+pic_num+".png) no-repeat;";
+			$("#weather  .inner .tomorrow .pic").attr("style",today_bg);
+			
+			tomorrow_weather_info = "明  "+data.weather[1].info.day[1];
+			tomorrow_weather_tempature = " "+data.weather[1].info.day[2]+"~"+data.weather[1].info.night[2]+"°C";
+			$("#weather  .inner .tomorrow .desc").text(tomorrow_weather_info);
+			$("#weather  .inner .tomorrow .temperature").text(tomorrow_weather_tempature);
+			
+			$("#weather_loading").hide();
+			$("#weather").show();
+		}
+		//获取城市编码
+		/*
+		function id_callback(){
+			$.ajax({
+				type:"get",
+				async:true,
+				data:{
+					code:id
+				},
+				url:"http://cdn.weather.hao.360.cn/sed_api_weather_info.php",
+				contentType: "application/json; charset=utf-8" ,
+				dataType: "jsonp",
+				jsonp: "callback",
+				error:function(){
+					
+				}
+			});
+		}
+		*/
+	</script>
+	<script type="text/javascript">
+		function searchClick(){
+			url     = $("#search-kw").attr("url");
+			keyword = $("#search-kw").val();
+			if(keyword == undefined || keyword == ""){
+				return ;
+			}
+			if(url == undefined || url == ""){
+				url = "http://www.so.com/s?src=zzy&q=";
+			}
+			window.open(url+keyword);
+			keyword = "";
+			click_log(keyword,url);
+		}
+	</script>
+	<script type="text/javascript">
+		var punycode = new function Punycode() {
+			this.utf16 = {
+				encode:function(input){
+					var output = [], i=0, len=input.length,value;
+					while (i < len) {
+						value = input[i++];
+						if ( (value & 0xF800) === 0xD800 ) {
+							throw new RangeError("UTF-16(encode): Illegal UTF-16 value");
+						}
+						if (value > 0xFFFF) {
+							value -= 0x10000;
+							output.push(String.fromCharCode(((value >>>10) & 0x3FF) | 0xD800));
+							value = 0xDC00 | (value & 0x3FF);
+						}
+						output.push(String.fromCharCode(value));
+					}
+					return output.join("");
+				}
+			}
+
+			//Default parameters
+			var initial_n = 0x80;
+			var initial_bias = 72;
+			var delimiter = "\x2D";
+			var base = 36;
+			var damp = 700;
+			var tmin=1;
+			var tmax=26;
+			var skew=38;
+			var maxint = 0x7FFFFFFF;
+
+			// decode_digit(cp) returns the numeric value of a basic code 
+			// point (for use in representing integers) in the range 0 to
+			// base-1, or base if cp is does not represent a value.
+
+			function decode_digit(cp) {
+				return cp - 48 < 10 ? cp - 22 : cp - 65 < 26 ? cp - 65 : cp - 97 < 26 ? cp - 97 : base;
+			}
+			
+			//** Bias adaptation function **
+			function adapt(delta, numpoints, firsttime ) {
+				var k;
+				delta = firsttime ? Math.floor(delta / damp) : (delta >> 1);
+				delta += Math.floor(delta / numpoints);
+
+				for (k = 0; delta > (((base - tmin) * tmax) >> 1); k += base) {
+						delta = Math.floor(delta / ( base - tmin ));
+				}
+				return Math.floor(k + (base - tmin + 1) * delta / (delta + skew));
+			}
+			
+			// Main decode
+			this.decode=function(input,preserveCase) {
+				var output=[];
+				var case_flags=[];
+				var input_length = input.length;
+
+				var n, out, i, bias, basic, j, ic, oldi, w, k, digit, t, len;
+
+				n = initial_n;
+				i = 0;
+				bias = initial_bias;
+				
+				basic = input.lastIndexOf(delimiter);
+				if (basic < 0) basic = 0;
+
+				for (j = 0; j < basic; ++j) {
+					if(preserveCase) case_flags[output.length] = ( input.charCodeAt(j) -65 < 26);
+					if ( input.charCodeAt(j) >= 0x80) {
+						throw new RangeError("Illegal input >= 0x80");
+					}
+					output.push( input.charCodeAt(j) );
+				}
+				
+				for (ic = basic > 0 ? basic + 1 : 0; ic < input_length; ) {
+					for (oldi = i, w = 1, k = base; ; k += base) {
+							if (ic >= input_length) {
+								throw RangeError ("punycode_bad_input(1)");
+							}
+							digit = decode_digit(input.charCodeAt(ic++));
+
+							if (digit >= base) {
+								throw RangeError("punycode_bad_input(2)");
+							}
+							if (digit > Math.floor((maxint - i) / w)) {
+								throw RangeError ("punycode_overflow(1)");
+							}
+							i += digit * w;
+							t = k <= bias ? tmin : k >= bias + tmax ? tmax : k - bias;
+							if (digit < t) { break; }
+							if (w > Math.floor(maxint / (base - t))) {
+								throw RangeError("punycode_overflow(2)");
+							}
+							w *= (base - t);
+					}
+
+					out = output.length + 1;
+					bias = adapt(i - oldi, out, oldi === 0);
+					
+					if ( Math.floor(i / out) > maxint - n) {
+						throw RangeError("punycode_overflow(3)");
+					}
+					n += Math.floor( i / out ) ;
+					i %= out;
+
+					if (preserveCase) { case_flags.splice(i, 0, input.charCodeAt(ic -1) -65 < 26);}
+
+					output.splice(i, 0, n);
+					i++;
+				}
+				if (preserveCase) {
+					for (i = 0, len = output.length; i < len; i++) {
+						if (case_flags[i]) {
+							output[i] = (String.fromCharCode(output[i]).toUpperCase()).charCodeAt(0);
+						}
+					}
+				}
+				return this.utf16.encode(output);
+			};
+			
+			this.ToUnicode = function ( domain ) {
+				var domain_array = domain.split(".");
+				var out = [];
+				for (var i=0; i < domain_array.length; ++i) {
+					var s = domain_array[i];
+					out.push(
+						s.match(/^xn--/) ?
+						punycode.decode(s.slice(4)) :
+						s
+					);
+				}
+				return out.join(".");
+			}
+	}();
+	</script>
+	<script type="text/javascript">
+		domain = punycode.ToUnicode(window.location.hostname);
+		suffixes = ["com","cn"];
+		if(domain.indexOf(".") >= 0){//没有点表示是全部是搜索文字
+			hosts =  domain.split(".");
+			if(hosts.length == 2){
+				if((hosts[1] == "com" || hosts[1] == "cn") && hosts[0] == "www"){
+					
+				}
+				else if(hosts[1] == "com" || hosts[1] == "cn"){
+					domain = hosts[0];
+				}else if(hosts[0] == "www"){
+					domain = hosts[1];
+				}
+			}else if(hosts.length >= 3){
+				if((hosts[hosts.length-1] == "com" || hosts[hosts.length-1] == "cn") && hosts[0] == "www"){
+					delete hosts[0];
+					delete hosts[hosts.length-1];
+				}
+				else if(hosts[hosts.length-1] == "com" || hosts[hosts.length-1] == "cn"){
+					delete hosts[hosts.length-1];
+				}else if(hosts[0] == "www"){
+					delete hosts[0];
+				}
+				temp = "";
+				for(var i=0;i < hosts.length; i++){
+					if(hosts[i] != undefined){
+						hosts[i]=hosts[i].replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g,'');
+						hosts[i]=hosts[i].replace(",",' ');
+						hosts[i]=hosts[i].replace(":",' ');
+						hosts[i]=hosts[i].replace(";",' ');
+						temp += " "+hosts[i];
+					}
+				}
+				domain = temp;
+			}
+		}
+		searchInput = document.getElementById("search-kw");
+		searchInput.value = domain;
+	</script>
+	<script type="text/javascript" language="javascript" src="http://jc.dnspai.com/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" language="javascript">
+		$(document).ready(function(){
+			$("#search-nav a").each(function(){
+				$(this).click(function(){
+					$("#search-nav a").removeClass("on");
+					$(this).addClass("on");
+					$("#baidu-logo, #so-logo, #google-logo,#bing-logo").hide();
+					$("#"+$(this).attr("id")+"-logo").show();
+					$("#search-kw").attr("url",$(this).attr("url"));
+				});
+			});
+	
+			$("#back2top").click(function(){
+				$("html,body").animate({scrollTop:0},"slow");
+			});
+
+            window.onscroll=function(){
+                scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+                if(scrollTop<200){$("#back2top").css({display:"none"});}else{ $("#back2top").css({display:"block"});}      
+            };
+			
+			if($.browser.msie&&($.browser.version == "6.0")&&!$.support.style){
+			   window.onscroll = function (){      
+					scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+                    if(scrollTop<200){$("#back2top").css({display:"none"});}else{$("#back2top").css({display:"block"});}
+                    $("#back2top").attr("class",$("#back2top").attr("class")); //ie6 scroll bug
+               }
+			}
+			
+			$("#cool-site a, #mbar a, #hot-site a ,#category-service a, #honghong a").each(function(){
+				$(this).attr("target","_blank");
+				$(this).click(function(){
+					key = $(this).text();
+					url = $(this).attr("href");
+					click_log(key,url);
+				});
+			});
+			
+			$(".side-app ul li").each(function(){
+				$(this).click(function(){
+					$(".side-app ul li").removeClass("on");
+					$(this).addClass("on");
+					$(".app-detail").children().each(function(){
+						$(this).hide();
+					});
+					$("#"+$(this).attr("for")).show();
+				});
+			});
+			
+			//get weather info
+			$.ajax({        
+                                type:"get",
+                                async:true,
+                                url:"http://cdn.weather.hao.360.cn/sed_api_weather_info.php",
+                                dataType: "jsonp",
+                                timeout:20000,
+                                success:function(data){
+					
+                                },
+                                error:function(){
+                                        $("#weather_loading").empty().append("<h3>天气信息加载失败</h3>");
+                                }
+                        });
+		});
+	</script>
+	<!--[if IE 6]>
+		<script type="text/javascript" src="http://jc.dnspai.com/png.js" ></script>
+		<script type="text/javascript">
+		DD_belatedPNG.fix('.baidu,.google,.so,.bing,a:hover,.pic,.tp,.tmp, .back2top');
+		</script>
+	<![endif]-->
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title><#:C('sitename')#>--会员中心</title>
+<meta name="keywords" content="<#:C('keyword')#>"/>
+<meta name="description" content="<#:C('content')#>"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<include file="Pub:Css"/>
+<link rel="stylesheet" href="<#$Theme['P']['root']#>/matrix/js/new/uniform/css/uniform.default.min.css"  />
+<!-- <link rel="stylesheet" href="<#$Theme['P']['root']#>/matrix/css/uniform.css" /> -->
+<!-- <link rel="stylesheet" href="<#$Theme['P']['root']#>/matrix/css/select2.css" /> -->
+<link rel="stylesheet" href="<#$Theme['P']['root']#>/matrix/js/new/select2/select2.min.css" /> 
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
+
+</head>
+<body>
+   <include file="Pub:top"/>
+   <include file="Pub:nav"/>
+<div id="main-content">
+<!--main-container-part-->
+	<div class="container">
+		<div class="row">
+<div id="content" class="col-lg-12">
+  <!-- <div id="breadcrumb"> <a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom"><i class="icon-home"></i>首页</a>  <a href="#" class="current">商户信息</a> </div>
+  <h1>商户信息</h1> -->
+  
+	<div id="content-header" class="page-header">
+		<ul class="breadcrumb">
+			<li>
+				<!-- <i class="fa fa-home"></i> -->
+				<div id="breadcrumb"> <i class="icon-home fa fa-home"></i><a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom">首页</a></div> 
+			</li>
+			<li>商户信息</li>
+		</ul>
+		<!-- <div id="breadcrumb"> <a href="<#:U('user/index')#>" title="返回首页" class="tip-bottom"><i class="icon-home"></i>首页</a></div> -->
+		<!-- /BREADCRUMBS -->
+			<div class="clearfix">
+				<h3 class="content-title pull-left"><span><i class="fa-user  icon-spin "></i>&nbsp;&nbsp;</span>商户信息</h3>
+			</div> 
+			<div class="description">&nbsp;</div>
+	  </div>
+  
+
+
+						
+	<div class="col-md-12">
+		<!-- BASIC -->
+		<div class="box border primary">
+		<div class="box-title">
+			<!-- <h4><i class="fa fa-bars"></i>b</h4> -->
+			<div class="widget-title"> <span class="icon">  </span>
+         <h4><i class="fa fa-bars"></i>编辑</h4>
+        </div>
+		</div>
+  
+	<div class="box-body big">
+        <form action="/index.php?m=User&a=doindex" method="post" class="form-horizontal" role="form" onsubmit="return jiancha()">
+
+            <!-- <div class="control-group">
+	              <label class="control-label">商户名称 :</label>
+	              <div class="controls">
+	                <input type="text" class="span11" placeholder="商户名称"  name="shopname" id="shopname" value="<#$info.shopname#>" />
+	                <span class="help-block">输入您商铺的名称，该名称将显示在认证页面顶部。</span> 
+	              </div>
+	            </div> -->
+			<div class="form-group">
+				<label class="col-sm-2 control-label">商户名称 :</label>
+				<div class="col-sm-9">
+				  <!-- <input type="text" class="span11" placeholder="商户名称"  name="shopname" id="shopname" value="<#$info.shopname#>" /> -->
+				  <input class="form-control" placeholder="商户名称"  name="shopname"  id="shopname" type="text" value="<#$info.shopname#>">
+                <span class="help-block">输入您商铺的名称，该名称将显示在认证页面顶部。</span> 
+				</div>
+			  </div>
+			
+			
+			<div class="form-group">
+				<label class="col-sm-2 control-label">联系人 :</label>
+				<div class="col-sm-9">
+				  <input class="form-control" placeholder="联系人" name="linker" id="linker" value="<#$info.linker#>" maxlength="20">
+                </div>
+			  </div>
+			
+			<div class="form-group">
+				<label class="col-sm-2 control-label">手机号码  :</label>
+				<div class="col-sm-9">
+				  <input class="form-control" placeholder="手机号码"  name="phone" id="phone" value="<#$info.phone#>" maxlength="11">
+                </div>
+			  </div>
+			  
+            
+			<div class="form-group">
+              <label class="col-sm-2 control-label">消费水平:</label>
+              <div class="col-sm-9 controls">
+              <volist name="enumdata.shoplevel" id="vo">
+              
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="<#$vo.key#>" name="shoplevel[]" <php>if(strpos($info['shoplevel'],"#".$vo['key']."#")>-1){echo "checked";} </php>/>
+                  <#$vo.txt#></label>
+                                       </volist>
+               
+              </div>
+            </div>
+			
+			
+			
+			
+            <div class="form-group">
+              <label class="col-sm-2  control-label">行业类型:</label>
+              <div class="col-sm-9 controls">
+               <volist name="enumdata.trades" id="vo">
+               
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="<#$vo.key#>" name="trade[]" <php>if(strpos($info['trade'],"#".$vo['key']."#")>-1){echo "checked";} </php> />
+                  <#$vo.txt#></label>
+                                      </volist>
+				<span class="help-block">选择您所处的行业类型，可多选</span> 
+              </div>
+            </div>
+			
+             <div class="form-group">
+              <label class="col-sm-2  control-label">商圈选择:</label>
+              <div class="col-sm-9">
+              <select name="province" id="province"  class="col-md-2"></select>
+              <select name="city" id="city"  class="col-md-2"></select>
+              <select name="area" id="area"  class="col-md-2"></select>	
+                  
+              </div>
+            </div>
+			
+			<!-- <div class="form-group">
+				<label class="col-sm-3 control-label">Selects</label>
+				<div class="col-sm-9">
+				 <select class="form-control">
+				  <option>1</option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>4</option>
+				  <option>5</option>
+				</select>
+				<div class="divide-20"></div>
+				<select multiple class="form-control">
+				  <option>1</option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>4</option>
+				  <option>5</option>
+				</select>
+				</div>
+							 </div> -->
+			
+			
+			
+			
+            <div class="form-group">
+              <label class="col-sm-2 control-label">店铺地址 :</label>
+              <div class="col-sm-9 controls">
+			<input type="text" class="form-control" placeholder="店铺地址 " name="address" id="address" maxlength="11 value="<#$info.address#>"/>
+               <span class="help-block">输入店铺的所在地址。</span> 
+              </div>
+            </div>
+			<if condition="1 eq 0"><!--$info.islm eq 0-->
+			<div class="control-group">
+			<div class="controls" style="color:red;display:none;">
+			新功能“超级广告联盟”，请联系上级代理开通
+			</div>
+			</div>
+			<else/>
+			
+			
+			<div class="form-group">
+              <label class="col-sm-2 control-label">坐标选择<font color="red"></font> :</label>
+              <div class=" col-sm-9 controls">
+				<div class="row">
+				<div class="col-xs-2">
+                <input type="text"  class="form-control" placeholder="经度 "  name="lng" id="lng" value="<#$info.lng#>" />&nbsp;&nbsp;</div>
+				<div class="col-xs-2">
+				<input   type="text"  class="form-control" placeholder="纬度 " name="lat" id="lat" value="<#$info.lat#>" /></div>
+				</div>
+				<font style="color:red;help-block">拖拽地图中的图标,获得您所在的坐标</font>
+				 <div id="container" class="form-group" style="width:500px;height:500px;margin-top:10px;;margin-left:1px;border:1px solid gray;border-radius:5px;"></div>
+					<script type="text/javascript">
+					var map = new BMap.Map("container");          // 创建地图实例 
+					map.addControl(new BMap.NavigationControl()); // 缩放控件
+					map.enableScrollWheelZoom();					//启用鼠标滚轮缩放
+					var point = new BMap.Point(<#$info.lng#>,<#$info.lat#>);  // 创建点坐标  
+					map.centerAndZoom(point, 18);                 // 初始化地图，设置中心点坐标和地图级别 
+
+					function myFun(result){//定位城市
+							var cityName = result.name;
+							map.setCenter(cityName);
+							//alert("当前定位城市:"+cityName);
+						}
+						var myCity = new BMap.LocalCity();
+						//myCity.get(myFun);
+
+
+					//自定义标注图标
+					var icon = new BMap.Icon('http://wxyxlm.b0.upaiyun.com/moavjc1397790268/2014/10/28/1414461207_a57b0ddc8f30c21c.png', new BMap.Size(40, 50), {  
+					anchor: new BMap.Size(10, 30)  
+					});
+					var mkr =new BMap.Marker(map.getCenter(), {  
+					icon: icon  
+					}); 
+					//修改自定义标注的偏移值					
+					var pianyi = new BMap.Size(-12,-18);
+					mkr.setOffset(pianyi);
+					 
+					var marker = new BMap.Marker(point);        // 创建标注 (默认的小标注)   
+					map.addOverlay(mkr); 					//添加标注到地图(把这里mkr换成marker就是默认的小图标了)
+					mkr.enableDragging();    									//可拖拽的标注(是否可拖拽,要记得更换mkr和marker的值)
+					mkr.addEventListener("dragend", function(e){    				//可拖拽的标注
+					//alert("当前位置：" + e.point.lng + ", " + e.point.lat);   		//可拖拽的标注 
+					$("#lng").val(e.point.lng);
+					$("#lat").val(e.point.lat);
+					})																//可拖拽的标注
+
+
+
+					//加载完成之后,改变标注点坐标,使之和当前定位的城市基本相符
+					map.addEventListener("tilesloaded",function(){
+						var newpoint = map.getCenter();
+						mkr.setPosition(newpoint);
+						$("#lng").val(newpoint.lng);
+						$("#lat").val(newpoint.lat);
+					});
+
+					</script>  
+              </div>
+              </div>
+			  
+					<div class="form-group hidden">
+					<label class="col-sm-2 control-label">是否开启商家联盟:</label>
+					
+						<div class="col-md-9">	
+					<if condition="$info['islm2'] eq 0">
+						<label style="margin-bottom:0px;"><input class="uniform" type="radio"  name="islm2" id="islm0" value="0" checked/>关闭</label>
+						<label style="margin-bottom:0px;"><input class="uniform" type="radio"  name="islm2" id="islm1" value="1"/>开启</label>
+					<else/>
+						<label style="margin-bottom:0px;"><input class="uniform" type="radio"  name="islm2" id="islm0" value="0"/>关闭</label>
+						<label style="margin-bottom:0px;"><input class="uniform" type="radio"  name="islm2" id="islm1" value="1" checked/>开启</label>
+					</if>
+						</div>
+					</div>
+					
+					<div class="form-group hidden">
+					<label class="col-sm-2 control-label">折扣:</label>
+					<div class="col-sm-9 controls">
+					<input class="col-sm-2 form-control" style="width:100px;" maxlength="3" type="text"  name="zhekou" id="zhekou" value="<#$info.zhekou#>" />&nbsp;
+					<font color="blue" style="font-size:16px;">折</font>
+					<div id="tip" style="color:red;display:none;"></div>
+					</div>
+					</div>
+			</if>
+			
+			
+		<!-- 	 <div class="form-group">
+				  <label class="col-sm-2  control-label">商圈选择:</label>
+				  <div class="col-sm-9 controls">
+				  <select name="province" id="province"  class="form-control"></select>
+				  <select name="city" id="city" class="form-control"></select>
+				  <select name="area" id="area" class="form-control"></select>
+					  
+				  </div>
+				</div> -->
+            
+            <div class="form-actions">
+              <button type="submit" class="btn btn-success">保存</button>
+			  
+            </div>
+          </form>
+       
+      </div>
+      </div>
+      
+      
+    </div>
+    </div></div></div>
+  </div>
+  
+
+   <include file="Pub:foot"/>
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.ui.custom.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/bootstrap.min.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/matrix.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/jquery.uniform.js"></script> 
+<script src="<#$Theme['P']['root']#>/matrix/js/select2.min.js"></script> 
+  <script src="<#$Theme['P']['js']#>/jsaddress.js"></script>
+                    <script type="text/javascript">
+                    addressInit('province', 'city', 'area', '<#$info['province']#>', '<#$info.city#>', '<#$info.area#>');
+                    </script>
+<script>
+$(document).ready(function(){
+	$('input[type=checkbox],input[type=radio],input[type=file]').uniform();
+	
+	$('select').select2();
+});
+</script>
+
+		  <script>
+				function jiancha(){
+					var zhekou = $('#zhekou').val();
+					var re = new RegExp("^[0-9]([.]{1}[0-9]{1})?$");
+					if(re.test(zhekou)){
+					
+					}else{
+					$('#tip').text('折扣只能是正整数或者一位小数，如“9”或者“7.8”');
+					$('#tip').show(500);
+					setTimeout("yincang()",8000);
+						return false;
+					}
+				}
+				function yincang(){
+					$('#tip').hide(500);
+				}
+		</script>
+</body>
+</html>
