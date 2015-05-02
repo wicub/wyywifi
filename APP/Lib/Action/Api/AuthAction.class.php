@@ -176,17 +176,23 @@ class AuthAction extends BaseApiAction{
 		header("Content-type:text/xml");
 		echo "<?xml version='1.0' encoding='UTF-8'?>
 		<sitemap>
-			<wxid>$wxid</wxid>
-			<wifisz>
+			
+		<wifisz>
 			<mc>$routename</mc>
 			<sfjm>$encrypt</sfjm>
-			<mm>$gw_password </mm>
+			<mm>$gw_password</mm>
 			<xd>$channel</xd>
 		</wifisz>
+		<rzxx>
+			<wxid>$wxid</wxid>
+			<fxbt>$fxbt</fxbt>
+			<fxlj>$fxlj</fxlj>
+			<fxtp>$fxtp</fxtp>
+		</rzxx>
 		<wwsz>
 			<swfs>$wwsite</swfs>
-			<wwzh>$wifi_acc </wwzh>
-			<wwmm>$wifi_pass </wwmm>
+			<wwzh>$wifi_acc</wwzh>
+			<wwmm>$wifi_pass</wwmm>
 		</wwsz>
 		<nwsz>
 			<jrfs>$nwsite</jrfs>
@@ -194,18 +200,10 @@ class AuthAction extends BaseApiAction{
 			<zwym>$route_mask</zwym>
 			<wg>$route_gateway</wg>
 		</nwsz>
-		<bmd>
-			$rzaite_yubai
-		</bmd>
-		<hmd>
-			$rzaite_yuhei
-		</hmd>
-		<mrzmacdz>
-			$mac_bai
-		</mrzmacdz>
-		<hmdmacdz>
-			$mac_hei
-		</hmdmacdz>
+		<bmd>$rzaite_yubai</bmd>
+		<hmd>$rzaite_yuhei</hmd>
+		<mrzmacdz>$mac_bai</mrzmacdz>
+		<hmdmacdz>$mac_hei</hmdmacdz>
 		</sitemap>
 		";
 		exit;
