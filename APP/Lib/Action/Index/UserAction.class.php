@@ -212,13 +212,14 @@ class UserAction extends BaseAction{
      	$where['id']=$uid;
 		$data['uid']=$uid;
         $info=$db->where($where)->field('authmode,authaction,jumpurl,timelimit,sh,eh,countflag,countmax') ->find();
-		$data=$wf->where($data)->field('title,titlepic') ->find();
+		$data=$wf->where($data)->field('title,titlepic,url') ->find();
         
 		$this->assign('a','application');
     	
         $this->assign('info',$info);
         $this->assign('data',$data);
 		//var_dump($info);exit;
+		//var_dump($data);exit;
 		//var_dump($data);exit;
         $this->display();
     }
@@ -255,17 +256,27 @@ class UserAction extends BaseAction{
 					$upload->maxSize    = C('AD_SIZE') ;
 					$upload->allowExts  = C('AD_IMGEXT');
 					$upload->savePath   =  C('AD_SAVE');
-					if(!$upload->upload()) {
+					//var_dump(strlen($_POST['pdpic']));exit;  //判断原先是否存在图片
+					if(!$upload->upload() && strlen($_POST['pdpic']) == 0) {
 						$this->error($upload->getErrorMsg());
 					}else{
 						$info    =  $upload->getUploadFileInfo();
 						$data['uid'] = session('uid');
 						$data['title'] = $_POST['wxtitle'];
-						$data['titlepic'] = trim( $info[0]['savepath'],'.').$info[0]['savename'];
-						//var_dump($info);exit;
+						if(strlen($_POST['pdpic']) == 0){
+							$data['titlepic'] = trim( $info[0]['savepath'],'.').$info[0]['savename'];
+						}else{
+							$data['titlepic'] = $_POST['pdpic'];
+						}
+						if(!isUrl($_POST['wxlian'])){
+								$this->error('分享链接必须以http://开始');
+						}
+						$data['url'] = $_POST['wxlian'];
 						$savedb=D('Wfshare');
 						//var_dump($savedb);exit;
-						if(!($savedb->where($data['uid'])->save($data))){
+						 $result = $savedb->where($data['uid'])->save($data);
+						if($result === false){
+							//var_dump($savedb->getlastsql());exit;
 							$this->error($savedb->getError());
 						}
 					}
@@ -1119,10 +1130,11 @@ class UserAction extends BaseAction{
 	**/
 	
 	public function actrpt(){
-		$db=D('Wapcatelog');
+		$db=D('useract');
 			$where['uid']=session('uid');
     		$list=$db->where($where)->select();
-    		$this->assign('lists',$list);
+			//var_dump($db->getlastsql());exit;
+			$this->assign('lists',$list);
     		$this->display();
 	}
 	

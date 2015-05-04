@@ -148,30 +148,41 @@ class AuthAction extends BaseApiAction{
 		
 		$wxid=echojsonkey(showauthdata('3',$authmode),'user');
 		
-		$sql="select `routename`,`encrypt`,`gw_password`,`channel`,`wwsite`,`wifi_acc`,`wifi_pass`,`nwsite`,`route_ip`,`route_mask`,`route_gateway`,`rzaite_yubai`,`rzaite_yuhei`,`mac_bai`,`mac_hei` from
+		$sql="select `shopid`,`routename`,`encrypt`,`gw_password`,`channel`,`wwsite`,`wifi_acc`,`wifi_pass`,`nwsite`,`route_ip`,`route_mask`,`route_gateway`,`rzaite_yubai`,`rzaite_yuhei`,`mac_bai`,`mac_hei` from
 		`wifi_routesite` where gw_id='$gw_id' ";
 		//var_dump($sql);exit;
 		$site=D('routesite');
 		$data1 = $site->query($sql);
+		$shopid = $data1[0]['shopid'];
 		$routename = $data1[0]['routename'];
-		$encrypt = $data1[0]['encrypt'];
-		$gw_password = $data1[0]['gw_password'];
-		$channel = $data1[0]['channel'];
-		$wwsite = $data1[0]['wwsite'];
-		$wifi_acc = $data1[0]['wifi_acc'];
-		$wifi_pass = $data1[0]['wifi_pass'];
-		$nwsite = $data1[0]['nwsite'];
-		$route_ip = $data1[0]['route_ip'];
-		$route_mask = $data1[0]['route_mask'];
-		$route_gateway = $data1[0]['route_gateway'];
-		$rzaite_yubai = $data1[0]['rzaite_yubai'];
-		$rzaite_yuhei = $data1[0]['rzaite_yuhei'];
-		$mac_bai = $data1[0]['mac_bai'];
-		$mac_hei = $data1[0]['mac_hei'];
+		$encrypt = $data1[0]['encrypt'] ? $data1[0]['encrypt'] : 'no';
+		$gw_password = $data1[0]['gw_password'] ? $data1[0]['gw_password'] : 'no';
+		$channel = $data1[0]['channel'] ? $data1[0]['channel'] : 'no';
+		$wwsite = $data1[0]['wwsite'] ? $data1[0]['wwsite'] : 'no';
+		$wifi_acc = $data1[0]['wifi_acc'] ? $data1[0]['wifi_acc'] : 'no';
+		$wifi_pass = $data1[0]['wifi_pass'] ? $data1[0]['wifi_pass'] : 'no';
+		$nwsite = $data1[0]['nwsite'] ?$data1[0]['nwsite'] : 'no';
+		$route_ip = $data1[0]['route_ip'] ? $data1[0]['route_ip'] : 'no';
+		$route_mask = $data1[0]['route_mask'] ? $data1[0]['route_mask'] :'no';
+		$route_gateway = $data1[0]['route_gateway'] ? $data1[0]['route_gateway'] : 'no';
+		$rzaite_yubai = $data1[0]['rzaite_yubai'] ? $data1[0]['rzaite_yubai'] : 'no';
+		$rzaite_yuhei = $data1[0]['rzaite_yuhei'] ? $data1[0]['rzaite_yuhei']: 'no';
+		$mac_bai = $data1[0]['mac_bai'] ? $data1[0]['mac_bai'] :'no';
+		$mac_hei = $data1[0]['mac_hei'] ? $data1[0]['mac_hei'] :'no';
+		
+		//获取分享的标题、图片、链接
+		$site2=D('Wfshare');
+		$sql2="select `title`,`titlepic`,`url` from wifi_wfshare where uid=$shopid";
+		$data2 = $site2 ->query($sql2);
+		//var_dump($data2);exit;
+		$fxbt= $data2[0]['title'] ?$data2[0]['title'] : 'no';
+		$fxlj= $data2[0]['url'] ? $data2[0]['url'] : 'no';
+		$fxtp=$_SERVER['REQUEST_SCHEME'] . '://' .  $_SERVER['SERVER_NAME'] . $data2[0]['titlepic'];
+		$fxtp ? $fxtp : 'no';
 		
 		
-		//var_dump($data1[0]['routename']);exit;
-		//var_dump($wxid);exit;
+		//var_dump($gw_password);exit;
+		//var_dump($fxtp);exit;
 		
 		header("Content-type:text/xml");
 		echo "<?xml version='1.0' encoding='UTF-8'?>

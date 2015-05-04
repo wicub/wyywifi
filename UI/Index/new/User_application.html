@@ -88,14 +88,23 @@
               </div>
             </div>
 			
+			<div class="form-group"  id="wxlian4">
+              <label class="col-sm-2 control-label">分享链接 :</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" placeholder="链接"  name="wxlian" id="wxlian" value="<#:$data['url']#>" />
+              	 <span class="help-block">请输入您想分享的链接</span>
+              </div>
+            </div>
+			
 			<if condition="$data eq true">
-				<div class="form-group"  id="wxpic4">
+				<div class="form-group wxpic4" id='wxpic4'  >
              <label class="col-sm-2 control-label">分享标题图片 :</label>
                <div class="col-md-10 controls">
+			   <input type="text" class="hidden"  name="pdpic" id="pdpic" value="<#$data.titlepic#>" />
 				<img src="<#$data.titlepic#>"  width="100" height="100" />
               </div> 
             </div>
-			<div class="form-group"  id="wxpic4">
+			<div class="form-group wxpic4" >
              <label class="col-sm-2 control-label">修改图片 :</label>
                <div class="col-md-10 controls">
                <input type="file" class="file-input"  name="img">
@@ -104,7 +113,7 @@
               </div> 
             </div>
 			<else />
-			<div class="form-group"  id="wxpic4">
+			<div class="form-group wxpic4"  id="wxpic4">
              <label class="col-sm-2 control-label">分享标题图片 :</label>
                <div class="col-md-10 controls">
                <input type="file" class="file-input"  name="img">
@@ -312,7 +321,8 @@ $(document).ready(function(){
 				}
 				if($('#xuanxiang4').attr('checked')!="checked"){
 					$("#wxacc4").hide();
-					$("#wxpic4").hide();
+					$(".wxpic4").hide();
+					$("#wxlian4").hide();
 				}
 				function yincangweixin(tt){
 					if(tt.id=="xuanxiang3"){
@@ -321,7 +331,8 @@ $(document).ready(function(){
 					}
 					if(tt.id=="xuanxiang4"){
 							$("#wxacc4").toggle();
-							$("#wxpic4").toggle();
+							$(".wxpic4").toggle();
+							$("#wxlian4").toggle();
 					}
 				}
 				

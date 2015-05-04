@@ -1,0 +1,49 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+    function open_wechat () {
+        function close_wechat() {
+          window.history.back();
+        }
+      setTimeout(close_wechat, 7000);
+      window.location.href = "weixin://dl/privacy";
+    }
+    setTimeout(open_wechat, 3000);
+  </script>
+  <style type="text/css">
+    body,p,img{
+      margin:0;
+      padding:0;
+      border:0;
+      font-family:Arial,Helvetica,sans-serif,tahoma,"Microsoft YaHei","","";
+    }
+    .wrap{
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-top: -65px;
+      margin-left: -200px;
+      width: 400px;
+      height: 130px;
+      text-align: center;
+    }
+    .wrap p{
+      margin-top: 30px;
+      color: #666;
+      font-size: 36px;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+<div>
+	<a href="javascript:void(0);" onclick="alert(1);">yijian</a>
+</div>
+  <img alt="Weixin" src="http://www.1-lianwifi.com/upload/AD/53f40cb215d1f.jpg" />
+</div>
+</body>
+</html>
+
+
