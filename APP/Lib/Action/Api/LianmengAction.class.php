@@ -49,6 +49,7 @@ class LianmengAction extends BaseApiAction{
 		$qus = $dbyhm->where('Pid="'.$qu['Pid'].'"')->select();
 		$_SESSION['qus'] = $qus;
 		//dump($_SESSION);die;
+		//var_dump($shops);exit;
 		$this->assign('shops',$shops);
 		$this->assign('shop',$shop);
 		$this->display();
@@ -198,4 +199,32 @@ class LianmengAction extends BaseApiAction{
 		//$data['tongji']="<script>alert('error');</script>";
 		$this->ajaxReturn($data,'JSON');
 	}
+	
+	/**
+	author : charles
+	date   : 2015/5/9
+	function : useract
+	**/
+	public function useract(){
+	
+	$uid = intval($_GET['id']);
+	//$uid = 22;
+	
+	$sql= "SELECT * FROM `wifi_useract` WHERE uid=$uid ORDER BY add_time DESC  LIMIT 1";
+	$db = D("wifi_useract");
+	$data = $db->query($sql);
+	//var_dump($data[0]);exit;
+	if($data){
+	
+		$this->assign('data',$data[0]);
+		$this->display('useract');
+	}else{
+		echo 2;
+	}
+	
+		
+	
+	}
+	
+	
 }

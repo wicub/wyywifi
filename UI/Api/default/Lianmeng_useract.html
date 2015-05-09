@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>活动详情</title>
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="{{assets}}i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="{{assets}}i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="{{assets}}i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="{{assets}}i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+<link rel="stylesheet" type="text/css"  href="<#$Theme['P']['root']#>/matrix/css/new/amazeui.css" >
+<link rel="stylesheet" type="text/css"  href="<#$Theme['P']['root']#>/matrix/css/new/stype01.css" >
+    
+   
+</head>
+<body>
+<!--活动内容页导航部分-->
+<div class="bussion-body-nav">
+    <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
+        <!--  <h2 class="am-titlebar-title">
+         <img src="i/index-img/1.png"/>
+         </h2> -->
+         <nav class="am-titlebar-nav">
+        <a href="#" class="am-text-sm">返回首页&raquo;</a>
+        </nav>
+     </div>
+</div>
+<!--活动内容页图片展示-->
+<div class="bussion-body-img">
+        <ul data-am-widget="gallery" class="am-gallery am-avg-sm-1 am-gallery-overlay" data-am-gallery="{ pureview: true }">
+        <li>
+            <div class="am-gallery-item">
+                <a href="">
+                    <img src="<#$data.titlepic#>"
+                         alt="商家形象展示" />
+                    <!-- <h3 class="am-gallery-title">点击查看相册</h3> -->
+                </a>
+            </div>
+        </li>
+            <!-- <div class="bussion-body-img-ov1 am-gallery-item">
+                    <a href="http://cn.bing.com/az/hprichv/LondonTrainStation_GettyRR_139321755_ZH-CN742316019.jpg">
+                        <img src="http://cn.bing.com/az/hprichv/LondonTrainStation_GettyRR_139321755_ZH-CN742316019.jpg"
+                             alt="本店环境" /></a>
+            </div>
+            <div class="bussion-body-img-ov1 am-gallery-item">
+                <a href="http://cn.bing.com/az/hprichv/LondonTrainStation_GettyRR_139321755_ZH-CN742316019.jpg">
+                    <img src="http://cn.bing.com/az/hprichv/LondonTrainStation_GettyRR_139321755_ZH-CN742316019.jpg"
+                         alt="本店产品" /></a>
+            </div>
+            <div class="bussion-body-img-ov1 am-gallery-item">
+                <a href="http://cn.bing.com/az/hprichv/LondonTrainStation_GettyRR_139321755_ZH-CN742316019.jpg">
+                    <img src="http://cn.bing.com/az/hprichv/LondonTrainStation_GettyRR_139321755_ZH-CN742316019.jpg"
+                         alt="漫步小道" /></a>
+            </div> -->
+        </ul>
+</div>
+<div class="bussion-body-navoe">
+    <!--特色产品的特惠价格及原价-->
+    <ul class="am-avg-sm-2 bussion-body-navoe1 am-active">
+        <li> <strong class="am-text-danger">特惠:<#$data.price_x#>元</strong>
+        <del class="am-text-xs bussion-body-navoe-bz"><#$data.price_y#>元</del>
+    </li>
+        <li><button type="button" class="am-btn am-btn-warning am-radius am-fr am-btn-sm">在线预约</button></li>
+    </ul>
+    <!--店内主打特色产品宣传-->
+    <ul class="am-avg-sm-1 bussion-body-navoe1 am-active">
+        <li>
+            <span class="am-badge am-badge-danger am-radius am-fr">特色</span>
+            <strong><#$data.title#> </strong><br>
+            <small class="bussion-body-navoe-bz"><#$data.info#> </small>
+        </li>
+    </ul>
+    <!--商家基本信息-->
+    <ul class="am-avg-sm-1 bussion-body-navoe1 am-active">
+        <li><strong>商家信息</strong></li>
+    </ul>
+    <ul class="am-avg-sm-1 bussion-body-navoe1 am-active">
+        <li>
+            <span class="am-icon-md am-icon-phone am-fr"></span>
+            <small><strong>金刚音速火吧</strong></small><br>
+            <span class="am-icon-map-marker"></span>
+            <small>游艺西街帝景家园商业街35号</small>
+       </li>
+    </ul>
+    <!--活动详情须知介绍-->
+   <!--  <ul class="am-avg-sm-1 bussion-body-navoe1 am-active">
+        <li><strong>特惠活动须知</strong></li>
+        <li>
+            <span class="am-icon-clock-o"></span>
+            <small>特惠有效期:</small>
+            <small>2014-12-22至2014-12-24</small>
+        </li>
+        <li>
+            <span class="am-icon-bullhorn"></span>
+            <small>特惠详情:</small>
+            <small>全场5折起，消费满100元返20元，满200元返60元，满500元送价值388元红酒一瓶</small>
+        </li>
+    </ul> -->
+</div>
+      <div class="bussion-body-navoe2">
+          <button type="button" class="am-btn am-btn-warning am-btn-block">立即预定</button>
+      </div>
+<!--底部面包屑导航-->
+<div class="bussion-body-navoe3">
+<ol class="am-breadcrumb">
+    <li><a href="#">联盟首页</a></li>
+    <li><a href="#">商家首页</a></li>
+    <li><a href="#">更多优惠</a></li>
+</ol>
+</div>
+<!--页脚信息-->
+<div class="bussion-body-footer">
+<footer data-am-widget="footer" class="am-footer am-footer-default">
+    <div class="am-footer-switch">
+        <span class="am-footer-ysp" data-rel="mobile" data-am-modal="{target: '#am-switch-mode'}">WIFI商业联盟</span>
+        <span class="am-footer-divider">|</span>
+        <a id="godesktop" data-rel="desktop" class="am-footer-desktop"
+           href="#">手机版</a>
+    </div>
+   <!--  <div class="am-footer-miscs ">
+        <p>由
+            <a href="http://www.fxywifi.com/" title="风讯辉腾" target="_blank">风讯辉腾</a>提供技术支持</p>
+        <p>0952-6025777</p>
+        <p>CopyRight©2015 FXphaeton.Inc.</p>
+        <p>宁ICP备14001451</p>
+    </div> -->
+</footer>
+</div>
+<!--回到顶部按钮-->
+<div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
+    <a href="#top" title="回到顶部">
+        <span class="am-gotop-title">回到顶部</span>
+        <i class="am-gotop-icon am-icon-chevron-up"></i>
+    </a>
+</div>
+
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<![endif]-->
+<script src="amazeui.js"></script>
+</body>
+</html>

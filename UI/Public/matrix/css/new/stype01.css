@@ -1,0 +1,35 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.am-list-bussion-body-navoe{
+    list-style-type: none;
+    float:left;
+    padding: 0px;
+}
+.bussion-body-navoe{
+    margin: 0px;
+    padding: 0px;
+}
+.bussion-body-img-ov1{
+    display: none;
+}
+.bussion-body-navoe1.am-active{
+    border-bottom: 1px solid #f1f1f1;
+    padding: 5px;
+}
+.bussion-body-navoe-bz{
+    color: #999999;
+}
+.am-icon-phone{
+    padding-top: 12px;
+    padding-right: 15px;
+    position: relative;
+    color: #d27015;
+
+}
+.bussion-body-navoe2{
+    height: 50px;
+    background-color: #f1f1f1;
+    padding-top: 5px;
+}

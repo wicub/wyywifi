@@ -155,7 +155,8 @@ window.onload=function() {
 <div class="shop-list J_list">
         <input type="hidden" class="J_query_id" value="92e6535e-b0ec-4d16-90c1-4a369563cdcf">
 		<volist name="shops" id="vo">
-			<a class="item" onclick="" href="<php>if(strlen($vo['lianmengurl'])>0){echo 'http://'.$vo['lianmengurl']; }else{echo '#';}</php>">
+			<!-- <a class="item" onclick="" href="<php>if(strlen($vo['lianmengurl'])>0){echo 'http://'.$vo['lianmengurl']; }else{echo '#';}</php>"> -->
+			<a class="item" onclick="" href="<#:U('lianmeng/useract',array('id'=>$vo['id']))#>">
                 <div class="cnt">
                 <h3 style='color:#FF8400;'><#$vo.shopname#>
                         
